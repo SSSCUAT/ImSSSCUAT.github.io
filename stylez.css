@@ -68,9 +68,12 @@ margin-bottom: 6px;
   text-align: left;
 }
 button{
-  background-color: rgb(14, 83, 56);
+  background-color: #315555 ;
 }
 button:hover{
-  background-color: rgb(149, 34, 34);
+  background-color: pink;
   transition: 0.5s;
+}
+.Contact{
+  background-color: aliceblue;
 }
