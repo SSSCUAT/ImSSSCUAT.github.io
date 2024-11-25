@@ -12,7 +12,7 @@ height: 600px;
   color: white;
   }
 .Intro-Container{
-background-color:#343434;
+background-color:#000000;
 width: 75%;
 margin-right: 4px;
 /* padding: 0px; */
@@ -34,7 +34,7 @@ width: 400px;
   text-emphasis-color: white ;
   }
 .Project-Photos{
-  border: 2px solid black;
+  border: 2px solid #343434;
 margin-top: 20px;
 width: 200px;
 }
