@@ -52,20 +52,24 @@
 }
 
 .Links-Container {
-  width: 25%;
-  margin-left: 4px;
-  text-align: center;
-  color: white;
-}
-
-.Link-Container {
-  height: 1100px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #11494b;
+  background-color: #000000;
   margin: 0;
   padding: 0;
+  height: 1000px;
+}
+
+.Link-Container {
+
+  /* display: flex;
+  align-items: center;
+  justify-content: center; */
+  background-color: #121212;
+  margin: 0;
+  padding: 0;
+  /* height: 100%; */
 
 
 }
@@ -106,14 +110,17 @@
   color: white;
 }
 
-.body {
+.bodyy {
   /* background-color: #121212; */
   margin: 0;
   padding: 0;
 }
 
 .p {
-  text-align: left;
+  /* text-align: left; */
+  color: #ffffff;
+  font-size: 1.5em;
+
 }
 
 button {
@@ -148,4 +155,54 @@ button:hover {
   transform: scale(1.1);
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
   background-color: #653889;
+}
+
+.head {
+  /* background-color: #18317e; */
+  margin: 0;
+  padding: 0;
+}
+
+/* General Styling */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.Title-Row {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.Media-Row {
+  display: flex;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.Media-Row img,
+.Media-Row video {
+  max-width: 300px;
+  height: auto;
+  margin-left: 20px;
+}
+
+.Description {
+  flex: 1;
+  /* Allows the description block to take available space */
+  margin: 0 20px;
+  /* Spacing around the description block */
+  text-align: center;
+  /* Centers the text within the block */
+  padding: 20px;
+  background-color: #1E1E1E;
+  border: 1px solid #000000;
+  border-radius: 8px;
+}
+
+h1 {
+  font-size: 3em;
+  margin-bottom: 20px;
+  color: #ffffff;
 }
