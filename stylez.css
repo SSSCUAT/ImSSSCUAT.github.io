@@ -1,9 +1,11 @@
 .First-Row {
-  height: 1000px;
+  height: 1100px;
   display: flex;
-  width: 100vw;
   align-items: center;
   justify-content: center;
+  background-color: #000000;
+  margin: 0;
+  padding: 0;
 }
 
 .Second-Row {
@@ -57,14 +59,13 @@
 }
 
 .Link-Container {
-  background-color: #16695b;
-  margin: 0;
-  padding: 0;
-  height: 1000px;
+  height: 1100px;
   display: flex;
-  width: 100vw;
   align-items: center;
   justify-content: center;
+  background-color: #11494b;
+  margin: 0;
+  padding: 0;
 
 
 }
@@ -106,7 +107,7 @@
 }
 
 .body {
-  background-color: #121212;
+  /* background-color: #121212; */
   margin: 0;
   padding: 0;
 }
