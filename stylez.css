@@ -1,104 +1,150 @@
-.First-Row{
-height: 500px;
-display:flex;
+.First-Row {
+  height: 1000px;
+  display: flex;
+  width: 100vw;
+  align-items: center;
+  justify-content: center;
 }
-.Second-Row{
-display: flex;
-height: 600px;
-}
-.Third-Row{
+
+.Second-Row {
   display: flex;
   height: 600px;
-  color: white;
-  }
-.Intro-Container{
-background-color:#000000;
-width: 75%;
-margin-right: 4px;
-/* padding: 0px; */
-text-align: center;
-text-emphasis-color: white ;
-color: white;
 }
-.Personal-Photo{
-  border: 2px solid black;
-margin-top: 20px;
-width: 400px;
+
+.Third-Row {
+  display: flex;
+  height: 10000px;
+  background-color: rgb(44, 103, 132);
+  margin: 0;
+  padding: 0;
 }
-.Projects-Container{
-  background-color:#343434;
+
+.Intro-Container {
   width: 75%;
   margin-right: 4px;
   /* padding: 0px; */
   text-align: center;
-  text-emphasis-color: white ;
-  }
-.Project-Photos{
+  text-emphasis-color: white;
+  color: white;
+}
+
+.Personal-Photo {
+  border: 2px solid black;
+  margin-top: 20px;
+  width: 400px;
+}
+
+.Projects-Container {
+  background-color: #343434;
+  width: 75%;
+  margin-right: 4px;
+  /* padding: 0px; */
+  text-align: center;
+  text-emphasis-color: white;
+}
+
+.Project-Photos {
   border: 2px solid #343434;
-margin-top: 20px;
-width: 200px;
+  margin-top: 20px;
+  width: 200px;
 }
-.Links-Container{
-width: 25%;
-margin-left: 4px;
-text-align: center;
-color: white;
+
+.Links-Container {
+  width: 25%;
+  margin-left: 4px;
+  text-align: center;
+  color: white;
 }
-.Link-Container{
-background-color: #343434;
-margin: 0 auto;
-width:75%;
-height: 25px;
-border: 2px solid black;
-display: flex;
-align-items: center;
-justify-content: center;
-margin-bottom: 6px;
-color: white;
+
+.Link-Container {
+  background-color: #16695b;
+  margin: 0;
+  padding: 0;
+  height: 1000px;
+  display: flex;
+  width: 100vw;
+  align-items: center;
+  justify-content: center;
+
+
 }
+
+.email-link {
+  text-decoration: none;
+  color: inherit;
+}
+
 /* .links-header{}*/
-.About-Me{
-    width: 50%;
-    /* padding: 4px; */
-    text-align: center;
-    color: white;
-    /* margin-right: 4px;
+.About-Me {
+  width: 50%;
+  /* padding: 4px; */
+  text-align: center;
+  color: white;
+  /* margin-right: 4px;
     margin-top: 4px; */
-    }
-.Experience{
-      width: 50%;
-      background-color: #343434;
-      padding: 0px;
-      text-align: center; 
-      margin-top: 0px;
-      margin-left: 4px;
-      color: white;
-    }
-.About-Me-Container{
-      margin: 0 auto;
-      width: 60%;
-      height: 515px;
-      display: flex;
-      /* align-items: left ; */
-      justify-content: center;
-      /* margin-bottom: 0px; */
-      color: white;
-    }
-.body{
-  background-color: #343434 ;
+}
+
+.Experience {
+  width: 50%;
+  background-color: #343434;
+  padding: 0px;
+  text-align: center;
+  margin-top: 0px;
+  margin-left: 4px;
+  color: white;
+}
+
+.About-Me-Container {
+  margin: 0 auto;
+  width: 60%;
+  height: 515px;
+  display: flex;
+  /* align-items: left ; */
+  justify-content: center;
+  /* margin-bottom: 0px; */
+  color: white;
+}
+
+.body {
+  background-color: #121212;
   margin: 0;
   padding: 0;
 }
-.p{
+
+.p {
   text-align: left;
 }
-button{
-  background-color: #343434 ;
+
+button {
+  background-color: #343434;
 }
-button:hover{
+
+button:hover {
   background-color: rgb(0, 105, 123);
   transition: 0.5s;
 }
-.Contact{
+
+.Contact {
   background-color: aliceblue;
+}
+
+.stylish-link {
+  display: inline-block;
+  text-decoration: none;
+  color: #000000;
+  background-color: #ced3d8;
+  padding: 15px 30px;
+  margin: 10px;
+  border-radius: 25px;
+  /* Makes corners rounded */
+  font-size: 16px;
+  font-weight: bold;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.stylish-link:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+  background-color: #653889;
 }
