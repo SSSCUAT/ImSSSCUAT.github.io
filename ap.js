@@ -1,4 +1,3 @@
-
 const imageSets = [
     {
         elementId: 'slideshow1',
@@ -8,7 +7,7 @@ const imageSets = [
             "images.Diego/image3.jpg"
         ],
         currentIndex: 0,
-        interval: 3000 // Change image every n seconds
+        interval: 2000 // Change image every 3 seconds
     },
     {
         elementId: 'slideshow2',
@@ -18,16 +17,23 @@ const imageSets = [
             "images.Diego/image6.jpg"
         ],
         currentIndex: 0,
-        interval: 4000 // Change image every j seconds
+        interval: 3000 // Change image every 5 seconds
     }
 ];
 
-function showNextImage(set) {
-    const imgElement = document.getElementById(set.elementId);
-    set.currentIndex = (set.currentIndex + 1) % set.images.length;
-    imgElement.src = set.images[set.currentIndex];
+function showNextImage() {
+    imageSets.forEach(set => {
+        const imgElement = document.getElementById(set.elementId);
+        set.currentIndex = (set.currentIndex + 1) % set.images.length;
+        imgElement.src = set.images[set.currentIndex];
+    });
 }
 
+// Automatically cycle through images
 imageSets.forEach(set => {
-    setInterval(() => showNextImage(set), set.interval);
+    setInterval(() => {
+        const imgElement = document.getElementById(set.elementId);
+        set.currentIndex = (set.currentIndex + 1) % set.images.length;
+        imgElement.src = set.images[set.currentIndex];
+    }, set.interval);
 });

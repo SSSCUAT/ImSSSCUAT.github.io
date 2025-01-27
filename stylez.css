@@ -1,9 +1,9 @@
 .First-Row {
-  height: 1100px;
+  height: vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #000000;
+  /* background-color: #000000; */
   margin: 0;
   padding: 0;
 }
@@ -55,10 +55,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #000000;
+  /* background-color: #000000; */
   margin: 0;
   padding: 0;
-  height: 1000px;
+  height: vh;
 }
 
 .Link-Container {
@@ -66,11 +66,12 @@
   /* display: flex;
   align-items: center;
   justify-content: center; */
-  background-color: #121212;
+  /* background-color: #121212; */
   margin: 0;
   padding: 0;
   /* height: 100%; */
-
+  animation: colorchange 20s infinite alternate;
+  /* animation for the background color */
   text-align: center;
   margin: 20px auto;
 
@@ -117,6 +118,7 @@
   /* background-color: #121212; */
   margin: 0;
   padding: 0;
+  animation: colorchange 20s infinite alternate;
 
 }
 
@@ -200,8 +202,8 @@ body {
   text-align: left;
   /* Centers the text within the block */
   padding: 20px;
-  background-color: #1E1E1E;
-  border: 1px solid #000000;
+  background-color: #595656;
+  border: 1px solid #ffffff;
   border-radius: 8px;
 }
 
@@ -219,3 +221,24 @@ h2 {
 }
 
 /* css for images in portfolio section */
+@keyframes colorchange {
+  0% {
+    background-color: #4b0f1d;
+  }
+
+  25% {
+    background-color: #0f3a5c;
+  }
+
+  50% {
+    background-color: #093e30;
+  }
+
+  75% {
+    background-color: #020312;
+  }
+
+  100% {
+    background-color: #271356;
+  }
+}
