@@ -1,18 +1,33 @@
-var pics = [
-    "images.Diego/IMG_3631.jpg", //0
-    "images.Diego/IMG_1236.jpg", //1
-    "images.Diego/IMG_3926.jpg", //2
-    "images.Diego/IMG_3927.jpg", //3
-    "images.Diego/IMG_5029.jpg" //4
-]
-var btn = document.querySelector("button")
-var img = document.querySelector("img");
-var counter = 1;
 
-btn.addEventListener("click", function(){
-    if(counter === 5 ){
-        counter = 0;
+const imageSets = [
+    {
+        elementId: 'slideshow1',
+        images: [
+            "images.Diego/image1.jpg",
+            "images.Diego/image2.jpg",
+            "images.Diego/image3.jpg"
+        ],
+        currentIndex: 0,
+        interval: 3000 // Change image every n seconds
+    },
+    {
+        elementId: 'slideshow2',
+        images: [
+            "images.Diego/image4.jpg",
+            "images.Diego/image5.jpg",
+            "images.Diego/image6.jpg"
+        ],
+        currentIndex: 0,
+        interval: 4000 // Change image every j seconds
     }
-    img.src = pics[counter]
-    counter = counter + 1
+];
+
+function showNextImage(set) {
+    const imgElement = document.getElementById(set.elementId);
+    set.currentIndex = (set.currentIndex + 1) % set.images.length;
+    imgElement.src = set.images[set.currentIndex];
+}
+
+imageSets.forEach(set => {
+    setInterval(() => showNextImage(set), set.interval);
 });

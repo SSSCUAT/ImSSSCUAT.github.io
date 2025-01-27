@@ -71,6 +71,9 @@
   padding: 0;
   /* height: 100%; */
 
+  text-align: center;
+  margin: 20px auto;
+
 
 }
 
@@ -114,12 +117,13 @@
   /* background-color: #121212; */
   margin: 0;
   padding: 0;
+
 }
 
 .p {
   /* text-align: left; */
   color: #ffffff;
-  font-size: 1.5em;
+  font-size: 1.3em;
 
 }
 
@@ -193,7 +197,7 @@ body {
   /* Allows the description block to take available space */
   margin: 0 20px;
   /* Spacing around the description block */
-  text-align: center;
+  text-align: left;
   /* Centers the text within the block */
   padding: 20px;
   background-color: #1E1E1E;
@@ -202,7 +206,16 @@ body {
 }
 
 h1 {
-  font-size: 3em;
+  font-size: 3.5em;
   margin-bottom: 20px;
   color: #ffffff;
 }
+
+h2 {
+  font-size: 2em;
+  margin-bottom: 20px;
+  color: #ffffff;
+  text-align: center;
+}
+
+/* css for images in portfolio section */
