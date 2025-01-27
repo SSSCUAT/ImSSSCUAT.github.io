@@ -223,22 +223,22 @@ h2 {
 /* css for images in portfolio section */
 @keyframes colorchange {
   0% {
-    background-color: #4b0f1d;
+    background-color: hwb(0 1% 85%);
   }
 
   25% {
-    background-color: #0f3a5c;
+    background-color: #03121e;
   }
 
   50% {
-    background-color: #093e30;
+    background-color: #042118;
   }
 
   75% {
-    background-color: #020312;
+    background-color: #040621;
   }
 
   100% {
-    background-color: #271356;
+    background-color: #100528;
   }
 }
