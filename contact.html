@@ -1,35 +1,23 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 
 <head>
-    <title>Contact</title>
-    <link rel="stylesheet" type="text/css" href="stylez.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Diego</title>
+    <link rel="stylesheet" href="stylez.css" />
 </head>
 
-<body class="bodyy">
-    <div class="Links-Container">
-        <h1>Contact Me</h1>
-        <ul>
+<body class="contact-section">
+    <div class="contact-container">
+        <h2 class="contact-title">Send Me a Message</h2>
 
-
-
-            <li> <a href="https://www.linkedin.com/in/diego-reynoso-a04876317/" class="stylish-link" target="_blank">
-                    LinkedIn
-                </a></li>
-
-            <li> <a href="https://ucla.joinhandshake.com/profiles/57150541" class="stylish-link" target="_blank">
-                    HandShake
-                </a></li>
-
-            <li> <a href="https://github.com/SSSCUAT" class="stylish-link" target="_blank"> GitHub
-                </a></li>
-
-            <li> <a href="mailto:diegomrr@ucla.edu" class="stylish-link"> Email Me
-                </a></li>
-        </ul>
-
-
+        <form class="contact-form" action="https://formspree.io/f/your-form-id" method="POST">
+            <input type="text" name="name" placeholder="Your Name" required />
+            <input type="email" name="email" placeholder="Your Email" required />
+            <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
     </div>
 </body>
 

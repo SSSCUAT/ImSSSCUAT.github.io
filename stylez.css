@@ -1,211 +1,11 @@
-.First-Row {
-  height: vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  /* background-color: #000000; */
+/* === Essential Styles for Diego's Website with Apple-Inspired Transitions === */
+
+body,
+html {
   margin: 0;
   padding: 0;
-}
-
-.Second-Row {
-  display: flex;
-  height: 600px;
-}
-
-.Third-Row {
-  display: flex;
-  height: 10000px;
-  background-color: rgb(44, 103, 132);
-  margin: 0;
-  padding: 0;
-}
-
-.Intro-Container {
-  width: 75%;
-  margin-right: 4px;
-  /* padding: 0px; */
-  text-align: center;
-  text-emphasis-color: white;
-  color: white;
-}
-
-.Personal-Photo {
-  border: 2px solid black;
-  margin-top: 20px;
-  width: 400px;
-}
-
-.Projects-Container {
-  background-color: #343434;
-  width: 75%;
-  margin-right: 4px;
-  /* padding: 0px; */
-  text-align: center;
-  text-emphasis-color: white;
-}
-
-.Project-Photos {
-  border: 2px solid #343434;
-  margin-top: 20px;
-  width: 200px;
-}
-
-.Links-Container {
-  display: flex;
-  max-height: 100vh;
-  align-items: center;
-  justify-content: center;
-  /* background-color: #000000; */
-  margin: 0;
-  padding: 0;
-  height: 90vh;
-}
-
-.Link-Container {
-
-  /* display: flex;
-  align-items: center;
-  justify-content: center; */
-  /* background-color: #121212; */
-  margin: 0;
-  padding: 0;
-  /* height: 100%; */
-  animation: colorchange 20s infinite alternate;
-  /* animation for the background color */
-  text-align: center;
-  margin: 20px auto;
-
-
-}
-
-.email-link {
-  text-decoration: none;
-  color: inherit;
-}
-
-/* .links-header{}*/
-.About-Me {
-  width: 50%;
-  /* padding: 4px; */
-  text-align: center;
-  color: white;
-  /* margin-right: 4px;
-    margin-top: 4px; */
-}
-
-.Experience {
-  width: 50%;
-  background-color: #343434;
-  padding: 0px;
-  text-align: center;
-  margin-top: 0px;
-  margin-left: 4px;
-  color: white;
-}
-
-.About-Me-Container {
-  margin: 0 auto;
-  width: 60%;
-  height: 515px;
-  display: flex;
-  /* align-items: left ; */
-  justify-content: center;
-  /* margin-bottom: 0px; */
-  color: white;
-}
-
-.bodyy {
-  /* background-color: #121212; */
-  margin: 0;
-  padding: 0;
-  animation: colorchange 20s infinite alternate;
-
-}
-
-.p {
-  /* text-align: left; */
-  color: #ffffff;
-  font-size: 1.3em;
-
-}
-
-button {
-  background-color: #343434;
-}
-
-button:hover {
-  background-color: rgb(0, 105, 123);
-  transition: 0.5s;
-}
-
-.Contact {
-  background-color: aliceblue;
-}
-
-.stylish-link {
-  display: inline-block;
-  text-decoration: none;
-  color: #000000;
-  background-color: #ced3d8;
-  padding: 15px 30px;
-  margin: 10px;
-  border-radius: 25px;
-  /* Makes corners rounded */
-  font-size: 16px;
-  font-weight: bold;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.stylish-link:hover {
-  transform: scale(1.1);
-  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
-  background-color: #653889;
-}
-
-.head {
-  /* background-color: #18317e; */
-  margin: 0;
-  padding: 0;
-}
-
-/* General Styling */
-body {
   font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-}
-
-.Title-Row {
-  text-align: center;
-  margin: 20px 0;
-}
-
-.Media-Row {
-  display: flex;
-  align-items: center;
-  margin: 20px 0;
-}
-
-.Media-Row img,
-.Media-Row video {
-  max-width: 300px;
-  height: auto;
-  margin-left: 20px;
-}
-
-.Description {
-  flex: 1;
-  /* Allows the description block to take available space */
-  margin: 0 20px;
-  /* Spacing around the description block */
-  text-align: left;
-  /* Centers the text within the block */
-  padding: 20px;
-  background-color: #595656;
-  border: 1px solid #ffffff;
-  border-radius: 8px;
+  scroll-behavior: smooth;
 }
 
 h1 {
@@ -221,25 +21,239 @@ h2 {
   text-align: center;
 }
 
-/* css for images in portfolio section */
-@keyframes colorchange {
-  0% {
-    background-color: hwb(0 1% 85%);
-  }
+/* === Section Background Transitions === */
+section {
+  padding: 100px 20px 50px;
+  position: relative;
+  z-index: 1;
+  transition: background 1s ease-in-out;
+}
 
-  25% {
-    background-color: #03121e;
-  }
+.section-1 {
+  background: linear-gradient(to bottom, #141E30, #243B55);
+  /* Deep navy to cool steel */
+}
 
-  50% {
-    background-color: #042118;
-  }
+.section-2 {
+  background: linear-gradient(to bottom, #243B55, #4E4376);
+  /* Steel blue to rich violet */
+}
 
-  75% {
-    background-color: #040621;
-  }
+.section-3 {
+  background: linear-gradient(to bottom, #4E4376, #2C5364);
+  /* Violet to ocean dusk */
+}
 
-  100% {
-    background-color: #100528;
-  }
+.section-4 {
+  background: linear-gradient(to bottom, #2C5364, #1A1A1A);
+  /* Ocean dusk to charcoal */
+}
+
+
+/* === Fade-in Animation === */
+.fade-in {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* === Carousel Styling === */
+.carousel-container {
+  position: relative;
+  width: 90%;
+  max-width: 800px;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.carousel-images {
+  display: flex;
+  transition: transform 0.3s ease-in-out;
+  touch-action: pan-y;
+}
+
+.carousel-image {
+  min-width: 100%;
+  height: auto;
+  display: none;
+  border-radius: 20px;
+  object-fit: cover;
+  user-select: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.carousel-image.active {
+  display: block;
+}
+
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  gap: 14px;
+  background-color: #2c2c2e;
+  border-radius: 50px;
+  padding: 20px 36px;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.5);
+}
+
+
+.carousel-dots .dot {
+  width: 14px;
+  height: 14px;
+  background-color: #aaa;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.carousel-dots .dot.active {
+  width: 48px;
+  height: 16px;
+  border-radius: 999px;
+  background-color: #e0e0e0;
+}
+
+/* === Description Text Under Carousel === */
+.bottom-description {
+  width: 90%;
+  max-width: 800px;
+  text-align: center;
+  margin: 30px auto;
+  font-size: 1.1em;
+  color: #ddd;
+  line-height: 1.6;
+}
+
+/* === Hero Image === */
+.slideshow {
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  width: 70%;
+  max-width: 800px;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto;
+}
+
+
+/* === Contact Section === */
+.contact-section {
+  background-color: #111;
+  color: #eee;
+  padding: 60px 20px;
+  text-align: center;
+  border-top: 1px solid #444;
+}
+
+.contact-title {
+  font-size: 48px;
+  margin-bottom: 40px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.contact-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.contact-btn {
+  background-color: #2c2c2e;
+  color: #eee;
+  padding: 14px 28px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+.contact-btn:hover {
+  background-color: #444;
+}
+
+/* === Reusable Paragraph Styling === */
+.p {
+  color: #ffffff;
+  font-size: 1.3em;
+}
+
+/* === Utility Flex Columns for Projects === */
+.column-layout {
+  flex-direction: column;
+  align-items: center;
+}
+
+.contact-container {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  max-width: 600px;
+  padding: 15px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  background-color: #1f1f1f;
+  color: #fff;
+}
+
+.contact-form textarea {
+  resize: vertical;
+}
+
+.contact-form button {
+  background-color: #00bcd4;
+  color: white;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+  background-color: #0097a7;
+}
+
+.Intro-Container {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.intro-description {
+  color: #fff;
+  font-size: 1.4em;
+  max-width: 900px;
+  margin: 0 auto 60px;
+  text-align: center;
+  line-height: 1.6;
 }
