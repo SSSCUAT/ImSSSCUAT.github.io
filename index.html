@@ -25,22 +25,31 @@
       top: 0;
       width: 100%;
       background-color: #000;
-      padding: 10px 0;
+      /* Deep black for strong contrast */
+      padding: 20px 0;
+      /* Increased padding for height */
       text-align: center;
       z-index: 999;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
     }
 
     nav a {
-      margin: 0 20px;
+      margin: 0 25px;
       color: #fff;
       text-decoration: none;
-      font-size: 18px;
+      font-size: 20px;
+      /* Slightly larger text */
       font-weight: bold;
       transition: color 0.3s ease;
     }
 
     nav a:hover {
       color: #00bcd4;
+    }
+
+    body {
+      padding-top: 80px;
+      /* matches or slightly exceeds nav height */
     }
   </style>
 </head>
@@ -129,7 +138,6 @@
     <h2 class="contact-title">Contact</h2>
     <div class="contact-buttons">
       <a href="contact.html" class="contact-btn">Send Me a Message</a>
-      <a href="mailto:diegomrr@ucla.edu" class="contact-btn">Email</a>
       <a href="https://www.linkedin.com/in/diego-reynoso-a04876317/" target="_blank" class="contact-btn">LinkedIn</a>
       <a href="https://ucla.joinhandshake.com/profiles/57150541" target="_blank" class="contact-btn">Handshake</a>
       <a href="https://github.com/SSSCUAT" target="_blank" class="contact-btn">GitHub</a>

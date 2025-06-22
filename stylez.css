@@ -69,6 +69,7 @@ section {
   max-width: 800px;
   overflow: hidden;
   margin: 0 auto;
+  background: transparent;
 }
 
 .carousel-images {
@@ -78,14 +79,20 @@ section {
 }
 
 .carousel-image {
-  min-width: 100%;
-  height: auto;
+  width: 100%;
+  height: 500px;
   display: none;
-  border-radius: 20px;
-  object-fit: cover;
+  border-radius: 0;
+  /* optional: remove rounded edges */
+  object-fit: contain;
   user-select: none;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  background-color: transparent;
+  box-shadow: none;
+  /* <- Removes the border effect */
 }
+
+
+
 
 .carousel-image.active {
   display: block;
