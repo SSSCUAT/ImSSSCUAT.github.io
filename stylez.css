@@ -30,25 +30,29 @@ section {
 }
 
 .section-1 {
-  background: linear-gradient(to bottom, #141E30, #243B55);
+  background: linear-gradient(to bottom, #141e30, #243b55);
   /* Deep navy to cool steel */
 }
 
 .section-2 {
-  background: linear-gradient(to bottom, #243B55, #4E4376);
+  background: linear-gradient(to bottom, #243b55, #4e4376);
   /* Steel blue to rich violet */
 }
 
 .section-3 {
-  background: linear-gradient(to bottom, #4E4376, #2C5364);
+  background: linear-gradient(to bottom, #4e4376, #2c5364);
   /* Violet to ocean dusk */
 }
 
 .section-4 {
   background: linear-gradient(to bottom, #2C5364, #1A1A1A);
-  /* Ocean dusk to charcoal */
+  /* Ocean dusk to charcoal - original gradient restored */
 }
 
+.section-5 {
+  background: linear-gradient(to bottom, #2C5364, #1A1A1A);
+  /* Seamless transition from previous section, matches section-4 */
+}
 
 /* === Fade-in Animation === */
 .fade-in {
@@ -90,9 +94,6 @@ section {
   box-shadow: none;
   /* <- Removes the border effect */
 }
-
-
-
 
 .carousel-image.active {
   display: block;
@@ -145,8 +146,8 @@ section {
 .slideshow {
   border-radius: 20px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  width: 70%;
-  max-width: 800px;
+  width: 40%;
+  max-width: 350px;
   object-fit: cover;
   display: block;
   margin: 0 auto;
@@ -263,4 +264,420 @@ section {
   margin: 0 auto 60px;
   text-align: center;
   line-height: 1.6;
+}
+
+/* === Summer Research Carousel Styles === */
+.research-carousel-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 40px auto;
+  max-width: 800px;
+  background: transparent;
+}
+
+.research-carousel-images {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 600px;
+  height: 400px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 18px;
+  background: linear-gradient(to bottom, #181a1b 80%, #2C5364 100%);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.4);
+}
+
+.research-carousel-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: none;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  transition: opacity 0.5s;
+  opacity: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.research-carousel-image.active {
+  display: block;
+  opacity: 1;
+  z-index: 2;
+}
+
+.carousel-arrow {
+  background: linear-gradient(135deg, #232526 60%, #414345 100%);
+  color: #fff;
+  border: none;
+  font-size: 40px;
+  font-weight: bold;
+  border-radius: 50%;
+  width: 56px;
+  height: 56px;
+  cursor: pointer;
+  margin: 0 18px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+  transition: background 0.3s, transform 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+  border: 2px solid #232526;
+}
+.carousel-arrow svg {
+  width: 32px;
+  height: 32px;
+  fill: #232526;
+}
+.carousel-arrow:hover {
+  background: linear-gradient(135deg, #414345 60%, #232526 100%);
+  transform: scale(1.12);
+  border-color: #414345;
+}
+
+/* Carousel Arrow Alignment Fix */
+.carousel-container,
+.research-carousel-container,
+.rocket-carousel-container,
+.rover-carousel-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+}
+.carousel-images,
+.research-carousel-images,
+.rocket-carousel-images,
+.rover-carousel-images {
+  flex: 1 1 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.carousel-arrow {
+  flex: 0 0 auto;
+  align-self: center;
+}
+
+/* Summer Research Section Text Styling */
+.section-5 h2.contact-title,
+.section-5 h3 {
+  color: #fff;
+  text-align: center;
+  font-size: 2em;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 18px;
+}
+.section-5 .Description p.p {
+  color: #e0e0e0;
+  font-size: 1.15em;
+  text-align: center;
+  margin: 0 auto 24px auto;
+  max-width: 700px;
+  line-height: 1.6;
+}
+
+/* === Gallery Navbar Styles === */
+.gallery-nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #000;
+  padding: 20px 0;
+  text-align: center;
+  z-index: 999;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+}
+.gallery-nav a {
+  margin: 0 25px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+.gallery-nav a.active,
+.gallery-nav a:hover {
+  color: #00bcd4;
+}
+.gallery-section {
+  padding: 100px 10px 60px;
+  min-height: 100vh;
+}
+.gallery-title {
+  text-align: center;
+  font-size: 3.2em;
+  color: #fff;
+  margin-bottom: 48px;
+  font-weight: 700;
+}
+/* Uniform gallery project title size */
+/* Gallery project titles: match index.html section titles (white) */
+/* Gallery project titles: match index.html section titles (white, 2em) */
+/* Removed duplicate/conflicting gallery-project-title and gallery-caption color rules */
+  /* padding: 36px;
+  text-align: center;
+  border: none;
+} */
+.gallery-carousel-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+  gap: 0;
+  min-height: 220px; /* Ensures arrows are vertically centered with images */
+}
+.gallery-carousel-images {
+  width: 480px;
+  height: 340px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.gallery-carousel-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  opacity: 0;
+  transition: opacity 0.5s;
+  border-radius: 18px;
+}
+.gallery-carousel-image.active {
+  opacity: 1;
+  z-index: 2;
+}
+
+.carousel-arrow {
+  background: linear-gradient(135deg, #232526 60%, #414345 100%);
+  color: #fff;
+  border: none;
+  font-size: 48px;
+  font-weight: bold;
+  border-radius: 50%;
+  width: 72px;
+  height: 72px;
+  cursor: pointer;
+  margin: 0 18px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+  transition: background 0.3s, transform 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+  border: 2px solid #232526;
+}
+.carousel-arrow svg {
+  width: 44px;
+  height: 44px;
+  fill: #232526;
+}
+.carousel-arrow:hover {
+  background: linear-gradient(135deg, #414345 100%);
+  transform: scale(1.12);
+  border-color: #414345;
+}
+
+/* Gallery Page Styles (moved from gallery.html) */
+html {
+  scroll-behavior: smooth;
+}
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #000;
+  padding: 20px 0;
+  text-align: center;
+  z-index: 999;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+}
+nav a {
+  margin: 0 25px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+nav a:hover,
+nav a.active {
+  color: #00bcd4;
+}
+body {
+  padding-top: 80px;
+  background: linear-gradient(to bottom, #141e30, #243b55, #141e30);
+  color: #ffffff;
+}
+.gallery-section {
+  padding: 100px 10px 60px;
+  min-height: 100vh;
+}
+.gallery-title {
+  text-align: center;
+  font-size: 3.2em;
+  color: #fff;
+  margin-bottom: 48px;
+  font-weight: 700;
+}
+.gallery-project-title {
+  color: #fff;
+  font-size: 2em;
+  margin: 48px 0 28px;
+  text-align: center;
+  font-weight: 600;
+}
+.gallery-list {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+.gallery-item {
+  background: transparent;
+  border-radius: 18px;
+  box-shadow: none;
+  padding: 36px;
+  text-align: center;
+  border: none;
+}
+.gallery-carousel-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+  gap: 0;
+  min-height: 220px; /* Ensures arrows are vertically centered with images */
+}
+.gallery-carousel-images {
+  width: 480px;
+  height: 340px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.gallery-carousel-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  opacity: 0;
+  transition: opacity 0.5s;
+  border-radius: 18px;
+}
+.gallery-carousel-image.active {
+  opacity: 1;
+  z-index: 2;
+}
+.carousel-arrow {
+  background: linear-gradient(135deg, #ffffff 60%, #99a3d1 100%);
+  color: #fff;
+  border: none;
+  font-size: 48px;
+  font-weight: bold;
+  border-radius: 50%;
+  width: 72px;
+  height: 72px;
+  cursor: pointer;
+  margin: 0 12px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+  transition: background 0.3s, transform 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+  border: 2px solid #222;
+}
+.carousel-arrow svg {
+  width: 44px;
+  height: 44px;
+  fill: #222;
+}
+.carousel-arrow:hover {
+  background: linear-gradient(135deg, #444 100%);
+  transform: scale(1.12);
+  border-color: #444;
+}
+.gallery-caption {
+  font-size: 1.3em;
+  color: #fff;
+  margin: 18px 0 12px;
+  font-weight: 600;
+}
+.gallery-desc {
+  font-size: 1.2em;
+  color: #ddd;
+  margin-bottom: 22px;
+}
+.gallery-btns {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 18px;
+}
+.gallery-btn {
+  background-color: #00bcd4;
+  color: #fff;
+  padding: 14px 32px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-size: 1.15em;
+  font-weight: 600;
+  transition: background 0.3s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+.gallery-btn:hover {
+  background-color: #0097a7;
+  color: #e0e0e0;
+}
+
+/* MOVED FROM index.html inline CSS */
+html {
+  scroll-behavior: smooth;
+}
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #000;
+  padding: 20px 0;
+  text-align: center;
+  z-index: 999;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+}
+nav a {
+  margin: 0 25px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+nav a:hover {
+  color: #00bcd4;
+}
+body {
+  padding-top: 80px;
+  background: linear-gradient(to bottom, #141e30, #243b55, #141e30);
+  color: #ffffff;
 }

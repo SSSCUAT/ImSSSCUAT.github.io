@@ -6,132 +6,135 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Diego Reynoso</title>
 
-  <style>
-    body {
-      background-color: #0a0a0a;
-      color: #ffffff;
-    }
-  </style>
-
   <link rel="stylesheet" href="stylez.css" />
   <script src="ap.js" defer></script>
-  <style>
-    html {
-      scroll-behavior: smooth;
-    }
-
-    nav {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      background-color: #000;
-      /* Deep black for strong contrast */
-      padding: 20px 0;
-      /* Increased padding for height */
-      text-align: center;
-      z-index: 999;
-      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
-    }
-
-    nav a {
-      margin: 0 25px;
-      color: #fff;
-      text-decoration: none;
-      font-size: 20px;
-      /* Slightly larger text */
-      font-weight: bold;
-      transition: color 0.3s ease;
-    }
-
-    nav a:hover {
-      color: #00bcd4;
-    }
-
-    body {
-      padding-top: 80px;
-      /* matches or slightly exceeds nav height */
-    }
-  </style>
 </head>
 
 <body>
   <nav>
-    <a href="#home">Home</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
+    <a href="#home" id="nav-home">Home</a>
+    <a href="#projects" id="nav-projects">Projects</a>
+    <a href="#contact" id="nav-contact">Contact</a>
+    <a href="gallery.html" id="nav-gallery">Engineering Gallery</a>
     <a href="diego_reynoso_resume.pdf" target="_blank">Resume</a>
   </nav>
 
-  <!-- HOME SECTION -->
+  <!-- ===================== HOME SECTION ===================== -->
   <section id="home" class="fade-in section-1">
     <div class="First-Row">
       <div class="Intro-Container">
-        <img class="slideshow" src="images.Diego/IMG_7027.jpg" alt="Diego Reynoso" />
+        <!-- MAIN PROFILE IMAGE (from images.Diego folder) -->
+        <img class="slideshow" src="images.Diego\FullSizeRender.JPG" alt="Diego Reynoso" />
         <h1>Diego Reynoso</h1>
-        <p class="intro-description">I’m an Aerospace Engineering student at UCLA with a passion for solving real-world
-          problems through
-          hands-on design, testing, and iteration.
-          My projects reflect a strong foundation in engineering principles, creativity in technical execution, and a
-          drive to build systems that perform.
-          I’m currently engaged in aerospace research and continuing to grow my skills through both academic and
-          independent engineering work.</p>
+  <p class="intro-description">I’m an Aerospace Engineering student at UCLA with a passion for solving real-world problems through hands-on design, testing, and iteration. My interests center on fluid mechanics, as well as mechanical and thermal systems, which are reflected in much of my academic and project work. I bring strong leadership experience from previous roles and thrive in collaborative environments where teams tackle difficult engineering challenges together. I am currently engaged in aerospace research and continue to grow my skills through both academic work and independent projects in clubs and engineering organizations.</p>
       </div>
     </div>
   </section>
+  <!-- ===================== END HOME SECTION ===================== -->
 
-  <!-- ROCKET PROJECT -->
-  <section id="projects" class="fade-in section-2">
-    <div class="Media-Row column-layout">
-      <div class="carousel-container">
-        <div class="carousel-images">
-          <img src="images.Diego\image2.jpg" class="carousel-image active" />
-          <img src="images.Diego\image3.jpg" class="carousel-image" />
-          <img src="images.Diego\image1.jpg" class="carousel-image" />
-        </div>
-        <div class="carousel-dots">
-          <span class="dot active"></span>
-          <span class="dot"></span>
-          <span class="dot"></span>
-        </div>
+  <!-- ===================== RESEARCH PROJECTS SECTION (NOW FIRST) ===================== -->
+  <section id="summer-research" class="fade-in section-2">
+    <h2 class="contact-title">Summer Research Projects</h2>
+    <div class="research-carousel-container">
+      <!-- Carousel Arrows and Images for Research Project -->
+      <button class="carousel-arrow left-arrow" id="research-left-arrow">
+        <svg viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="12" fill="none" />
+          <polyline points="15 6 9 12 15 18" stroke="#232526" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </button>
+      <div class="research-carousel-images">
+        <!-- MAIN RESEARCH IMAGE (from images.Diego folder) -->
+        <img src="Manufacturing\Research\supr-poster-symposium-013.JPEG" class="research-carousel-image active" alt="Research 1" />
+        <!-- ADD RESEARCH PROJECT IMAGES BELOW (from manufacturing folder) -->
+        <img src="Manufacturing\Research\IMG_8013.jpeg" class="research-carousel-image" alt="Research 2" />
+        <img src="Manufacturing\Research\IMG_4374.PNG" class="research-carousel-image" alt="Research 3" />
+        <!-- To add more, copy the line above and update src/alt -->
       </div>
-
-      <div class="Description bottom-description">
-        <h2>Group Mid-Powered Rocket Project</h2>
-        <p class="p">
-          As part of a team of three, I led the design, construction, and testing of a G-class rocket that successfully
-          reached 3,000 feet.
-          The rocket protected an egg and Adalogger sensor payload, designed with SolidWorks and simulated in
-          OpenRocket, and fabricated using
-          fiberglass layups, laser cutting, and 3D printing.
-        </p>
-      </div>
+      <button class="carousel-arrow right-arrow" id="research-right-arrow">
+        <svg viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="12" fill="none" />
+          <polyline points="9 6 15 12 9 18" stroke="#232526" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </button>
     </div>
-  </section>
-
-  <!-- ROVER PROJECT -->
-  <section class="fade-in section-3">
-    <div class="carousel-container">
-      <div class="carousel-images" id="rover-images">
-        <img src="images.Diego\image6.jpg" class="carousel-image active" alt="Rover 1" />
-        <img src="images.Diego\image4.jpg" class="carousel-image" alt="Rover 2" />
-        <img src="images.Diego\image5.jpg" class="carousel-image" alt="Rover 3" />
-      </div>
-      <div class="carousel-dots" id="rover-dots">
-        <div class="dot active"></div>
-        <div class="dot"></div>
-        <div class="dot"></div>
-      </div>
-    </div>
-
+    <!-- RESEARCH CAPTION AND DESCRIPTION -->
     <div class="Description bottom-description">
-      <h2>Mars Rover Project, UCLA HAcK Competition</h2>
-      <p class="p">
-        Participated in a 48-hour challenge to design and build a Mars rover prototype.
-        As CAD lead, I designed the chassis in SolidWorks, led the arm/claw design, and integrated key sensors.
-        Our team received Honorable Mention for our manufacturing quality and design precision.
-      </p>
+  <p class="p">I conducted hands-on research under Professor Ann Karagozian in UCLA’s Energy and Propulsion Laboratory, focusing on unsteady and periodic turbulent flows. My work combined experimental setup, design, and manufacturing of custom components to support advanced PIV (Particle Image Velocimetry) and PLIF (Planar Laser-Induced Fluorescence) measurements. Through this project, I gained deeper insight into strategies for enhancing mixing in air-breathing engines and thrust vectoring applications. The experience strengthened both my technical foundation in fluid dynamics and my ability to design precise, reliable experimental hardware.</p>
     </div>
   </section>
+  <!-- ===================== END RESEARCH PROJECTS SECTION ===================== -->
+
+  <!-- ===================== ROVER PROJECT SECTION (NOW SECOND) ===================== -->
+  <section class="fade-in section-3">
+    <div class="carousel-container rover-carousel-container">
+      <!-- Carousel Arrows and Images for Rover Project -->
+      <button class="carousel-arrow left-arrow" id="rover-left-arrow">
+        <svg viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="12" fill="none" />
+          <polyline points="15 6 9 12 15 18" stroke="#232526" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </button>
+      <div class="carousel-images rover-carousel-images">
+        <!-- MAIN ROVER IMAGE (from images.Diego folder) -->
+        <img src="Manufacturing\HACK\image6.jpg" class="carousel-image rover-carousel-image active" alt="Rover 1" />
+        <!-- ADD ROVER PROJECT IMAGES BELOW (from manufacturing folder) -->
+        <img src="Manufacturing\HACK\IMG_3582.jpg" class="carousel-image rover-carousel-image" alt="Rover 2" />
+        <img src="Manufacturing\HACK\image4.jpg" class="carousel-image rover-carousel-image" alt="Rover 3" />
+        <img src="Manufacturing\HACK\IMG_3553.jpeg" class="carousel-image rover-carousel-image" alt="Rover 4" />
+        <img src="Manufacturing\HACK\IMG_3537.jpeg" class="carousel-image rover-carousel-image" alt="Rover 5" />
+        <!-- To add more, copy the line above and update src/alt -->
+      </div>
+      <button class="carousel-arrow right-arrow" id="rover-right-arrow">
+        <svg viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="12" fill="none" />
+          <polyline points="9 6 15 12 9 18" stroke="#232526" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </button>
+    </div>
+    <!-- ROVER CAPTION AND DESCRIPTION -->
+    <div class="Description bottom-description">
+      <h2>Mars Rover Project, UCLA HAcK Competition</h2> <!-- Update title here -->
+  <p class="p">I participated in a 48-hour design challenge to create a Mars rover prototype. As CAD lead, I designed the chassis in SolidWorks and led the development of the arm and claw mechanisms, integrating gear systems and sensors for mobility and manipulation. I also supported manufacturing and assembly to ensure smooth integration of all subsystems. Our team received Honorable Mention for both the manufacturing quality and the creativity of our design.</p>
+    </div>
+  </section>
+  <!-- ===================== END ROVER PROJECT SECTION ===================== -->
+
+  <!-- ===================== ROCKET PROJECT SECTION (NOW THIRD) ===================== -->
+  <section id="projects" class="fade-in section-4">
+    <div class="Media-Row column-layout">
+      <div class="carousel-container rocket-carousel-container">
+        <!-- Carousel Arrows and Images for Rocket Project -->
+        <button class="carousel-arrow left-arrow" id="rocket-left-arrow">
+          <svg viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="12" fill="none" />
+            <polyline points="15 6 9 12 15 18" stroke="#232526" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </button>
+        <div class="carousel-images rocket-carousel-images">
+          <!-- MAIN ROCKET IMAGE (from images.Diego folder) -->
+          <img src="Manufacturing\ROCKET\image1.jpg" class="carousel-image rocket-carousel-image active" alt="Rocket 1" />
+          <!-- ADD ROCKET PROJECT IMAGES BELOW (from manufacturing folder) -->
+          <img src="Manufacturing\ROCKET\IMG_6912.jpeg" class="carousel-image rocket-carousel-image" alt="Rocket 2" />
+          <img src="Manufacturing\ROCKET\IMG_6917.jpeg" class="carousel-image rocket-carousel-image" alt="Rocket 3" />
+          <img src="Manufacturing\ROCKET\IMG_5986.jpg" class="carousel-image rocket-carousel-image" alt="Rocket 4" />
+          <!-- To add more, copy the line above and update src/alt -->
+        </div>
+        <button class="carousel-arrow right-arrow" id="rocket-right-arrow">
+          <svg viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="12" fill="none" />
+            <polyline points="9 6 15 12 9 18" stroke="#232526" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </button>
+      </div>
+      <!-- ROCKET CAPTION AND DESCRIPTION -->
+      <div class="Description bottom-description">
+        <h2>Group Mid-Powered Rocket Project</h2> <!-- Update title here -->
+  <p class="p">As part of a three-person team, I led the design, construction, and testing of a G-class rocket with the mission of reaching 3,000 feet. The rocket was designed to protect an egg and house an Adalogger sensor payload. Using SolidWorks for CAD modeling and OpenRocket for simulation, I developed multiple prototypes and iterations, employing fabrication methods such as fiberglass layups, laser cutting, and 3D printing. I also led design review presentations and coordinated testing, ensuring our final rocket met both mission requirements and safety standards.</p>
+      </div>
+    </div>
+  </section>
+  <!-- ===================== END ROCKET PROJECT SECTION ===================== -->
 
   <!-- CONTACT SECTION -->
   <section id="contact" class="fade-in section-4">
@@ -144,6 +147,93 @@
       <a href="https://github.com/SSSCUAT" target="_blank" class="contact-btn">GitHub</a>
     </div>
   </section>
+
+  <script>
+    // Highlight active nav button based on scroll position
+    function setActiveNav() {
+      const sections = [
+        {id: 'home', nav: 'nav-home'},
+        {id: 'projects', nav: 'nav-projects'},
+        {id: 'contact', nav: 'nav-contact'}
+      ];
+      let activeFound = false;
+      sections.forEach(section => {
+        const el = document.getElementById(section.id);
+        const navEl = document.getElementById(section.nav);
+        if (el && navEl) {
+          const rect = el.getBoundingClientRect();
+          if (rect.top <= 80 && rect.bottom > 80 && !activeFound) {
+            navEl.classList.add('active');
+            activeFound = true;
+          } else {
+            navEl.classList.remove('active');
+          }
+        }
+      });
+      // Remove active from gallery button on index.html
+      const galleryNav = document.getElementById('nav-gallery');
+      if (galleryNav) galleryNav.classList.remove('active');
+    }
+    window.addEventListener('scroll', setActiveNav);
+    window.addEventListener('DOMContentLoaded', setActiveNav);
+
+    // Rocket Carousel Functionality
+    const rocketImages = document.querySelectorAll('.rocket-carousel-image');
+    const rocketLeftArrow = document.getElementById('rocket-left-arrow');
+    const rocketRightArrow = document.getElementById('rocket-right-arrow');
+    let rocketIndex = 0;
+    function showRocketImage(idx) {
+      rocketImages.forEach((img, i) => {
+        img.classList.toggle('active', i === idx);
+      });
+    }
+    rocketLeftArrow.addEventListener('click', () => {
+      rocketIndex = (rocketIndex - 1 + rocketImages.length) % rocketImages.length;
+      showRocketImage(rocketIndex);
+    });
+    rocketRightArrow.addEventListener('click', () => {
+      rocketIndex = (rocketIndex + 1) % rocketImages.length;
+      showRocketImage(rocketIndex);
+    });
+
+    // Rover Carousel Functionality
+    const roverImages = document.querySelectorAll('.rover-carousel-image');
+    const roverLeftArrow = document.getElementById('rover-left-arrow');
+    const roverRightArrow = document.getElementById('rover-right-arrow');
+    let roverIndex = 0;
+    function showRoverImage(idx) {
+      roverImages.forEach((img, i) => {
+        img.classList.toggle('active', i === idx);
+      });
+    }
+    roverLeftArrow.addEventListener('click', () => {
+      roverIndex = (roverIndex - 1 + roverImages.length) % roverImages.length;
+      showRoverImage(roverIndex);
+    });
+    roverRightArrow.addEventListener('click', () => {
+      roverIndex = (roverIndex + 1) % roverImages.length;
+      showRoverImage(roverIndex);
+    });
+
+    // Summer Research Carousel Functionality
+    const researchImages = document.querySelectorAll('.research-carousel-image');
+    const leftArrow = document.getElementById('research-left-arrow');
+    const rightArrow = document.getElementById('research-right-arrow');
+    let researchIndex = 0;
+    function showResearchImage(idx) {
+      researchImages.forEach((img, i) => {
+        img.classList.toggle('active', i === idx);
+      });
+    }
+    leftArrow.addEventListener('click', () => {
+      researchIndex = (researchIndex - 1 + researchImages.length) % researchImages.length;
+      showResearchImage(researchIndex);
+    });
+    rightArrow.addEventListener('click', () => {
+      researchIndex = (researchIndex + 1) % researchImages.length;
+      showResearchImage(researchIndex);
+    });
+  </script>
 </body>
 
 </html>
