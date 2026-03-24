@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gallery | Diego Reynoso</title>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <!-- Navigation -->
@@ -17,96 +17,97 @@
         <li><a href="index.html#projects" class="nav-link">Projects</a></li>
         <li><a href="index.html#skills" class="nav-link">Skills</a></li>
         <li><a href="gallery.html" class="nav-link active">Gallery</a></li>
-        <!-- <li><a href="index.html#contact" class="nav-link">Contact</a></li> -->
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+        <li><a href="diego_reynoso_resume.pdf" class="nav-resume-btn" target="_blank">Resume</a></li>
       </ul>
     </div>
   </nav>
 
   <!-- Gallery Hero -->
-  <section class="hero" style="margin-top: 80px; min-height: auto; padding: 3rem 1.5rem 2rem;">
-    <div class="hero-content" style="grid-template-columns: 1fr; gap: 1rem; text-align: center;">
-      <div class="hero-text" style="justify-content: flex-start;">
-        <h1 class="hero-title" style="font-size: 2.5rem; margin-bottom: 0.5rem; color: #F0F0F0;">Engineering Gallery</h1>
-        <p class="hero-subtitle" style="text-align: center; max-width: 600px; margin: 0 auto 0; color: #B0B0B0;">Detailed designs, CAD models, and documentation from my projects.</p>
+  <section class="hero gallery-hero">
+    <div class="hero-content gallery-hero-content">
+      <div class="hero-text gallery-hero-text">
+        <h1 class="hero-title">Engineering Gallery</h1>
+        <p class="hero-subtitle">Detailed designs, CAD models, and documentation from my projects.</p>
       </div>
     </div>
   </section>
 
   <!-- Gallery Grid -->
-  <section class="projects" style="padding-top: 2rem;">
+  <section class="projects gallery-projects-section">
     <div class="projects-container">
       
       <!-- Summer Research -->
       <div class="gallery-project" id="research">
-        <h2 class="section-title" style="font-size: 2rem; text-align: left; margin-bottom: 2rem; color: #E0E0E0;">Summer Research Project</h2>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 3rem;">
-          <div class="gallery-item" style="aspect-ratio: 1; border-radius: 8px; overflow: hidden; background-color: #2A2A2A;">
-            <img src="CAD/RESEARCH/Screenshot 2025-10-01 151345.png" alt="Research CAD 1" style="width: 100%; height: 100%; object-fit: cover; transition: all 0.3s ease; cursor: pointer;">
+        <h2 class="section-title">Summer Research Project</h2>
+        <div class="gallery-grid">
+          <div class="gallery-item">
+            <img src="CAD/RESEARCH/Screenshot 2025-10-01 151345.png" alt="Research CAD 1">
           </div>
-          <div class="gallery-item" style="aspect-ratio: 1; border-radius: 8px; overflow: hidden; background-color: #2A2A2A;">
-            <img src="CAD/RESEARCH/Screenshot 2025-10-01 151513.png" alt="Research CAD 2" style="width: 100%; height: 100%; object-fit: cover; transition: all 0.3s ease; cursor: pointer;">
+          <div class="gallery-item">
+            <img src="CAD/RESEARCH/Screenshot 2025-10-01 151513.png" alt="Research CAD 2">
           </div>
-          <div class="gallery-item" style="aspect-ratio: 1; border-radius: 8px; overflow: hidden; background-color: #2A2A2A;">
-            <img src="CAD/RESEARCH/Screenshot 2025-10-01 151654.png" alt="Research CAD 3" style="width: 100%; height: 100%; object-fit: cover; transition: all 0.3s ease; cursor: pointer;">
+          <div class="gallery-item">
+            <img src="CAD/RESEARCH/Screenshot 2025-10-01 151654.png" alt="Research CAD 3">
           </div>
-          <div class="gallery-item" style="aspect-ratio: 1; border-radius: 8px; overflow: hidden; background-color: #2A2A2A;">
-            <img src="CAD/RESEARCH/Screenshot 2025-10-01 151712.png" alt="Research CAD 4" style="width: 100%; height: 100%; object-fit: cover; transition: all 0.3s ease; cursor: pointer;">
+          <div class="gallery-item">
+            <img src="CAD/RESEARCH/Screenshot 2025-10-01 151712.png" alt="Research CAD 4">
           </div>
-          <div class="gallery-item" style="aspect-ratio: 1; border-radius: 8px; overflow: hidden; background-color: #2A2A2A;">
-            <img src="CAD/RESEARCH/Screenshot 2025-10-01 151603.png" alt="Research CAD 5" style="width: 100%; height: 100%; object-fit: cover; transition: all 0.3s ease; cursor: pointer;">
+          <div class="gallery-item">
+            <img src="CAD/RESEARCH/Screenshot 2025-10-01 151603.png" alt="Research CAD 5">
           </div>
         </div>
         <p class="project-description">Designed and fabricated calibration and measurement components in CAD to improve experimental accuracy in PIV and PLIF measurements. This included laser sheet alignment tools, motorized stage adapters, rulers for calibration, and precision plate holders. These tools enhanced setup repeatability and data quality for advanced jet mixing and shear-layer instability research.</p>
-        <div style="margin-top: 1.5rem;">
-          <a href="Manufacturing/Research/supr-poster-symposium-013.JPEG" target="_blank" class="project-link" style="margin-right: 1.5rem;">View High Resolution ↗</a>
+        <div class="gallery-link-wrapper">
+          <a href="Manufacturing/Research/supr-poster-symposium-013.JPEG" target="_blank" class="project-link">View High Resolution ↗</a>
         </div>
       </div>
 
       <!-- Mars Rover -->
-      <div class="gallery-project" id="rover" style="margin-top: 3rem; padding-top: 3rem; border-top: 1px solid #333333;">
-        <h2 class="section-title" style="font-size: 2rem; text-align: left; margin-bottom: 2rem; color: #E0E0E0;">Mars Rover Project</h2>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 3rem;">
-          <div class="gallery-item" style="aspect-ratio: 1; border-radius: 8px; overflow: hidden; background-color: #2A2A2A;">
-            <img src="CAD/ROVER/image5.jpg" alt="Rover CAD 1" style="width: 100%; height: 100%; object-fit: cover; transition: all 0.3s ease; cursor: pointer;">
+      <div class="gallery-project" id="rover">
+        <h2 class="section-title">Mars Rover Project</h2>
+        <div class="gallery-grid">
+          <div class="gallery-item">
+            <img src="CAD/ROVER/image5.jpg" alt="Rover CAD 1">
           </div>
-          <div class="gallery-item" style="aspect-ratio: 1; border-radius: 8px; overflow: hidden; background-color: #2A2A2A;">
-            <img src="CAD/ROVER/Screenshot 2025-10-02 160224.png" alt="Rover CAD 2" style="width: 100%; height: 100%; object-fit: cover; transition: all 0.3s ease; cursor: pointer;">
+          <div class="gallery-item">
+            <img src="CAD/ROVER/Screenshot 2025-10-02 160224.png" alt="Rover CAD 2">
           </div>
-          <div class="gallery-item" style="aspect-ratio: 1; border-radius: 8px; overflow: hidden; background-color: #2A2A2A;">
-            <img src="CAD/ROVER/Screenshot 2025-10-02 174948.png" alt="Rover CAD 3" style="width: 100%; height: 100%; object-fit: cover; transition: all 0.3s ease; cursor: pointer;">
+          <div class="gallery-item">
+            <img src="CAD/ROVER/Screenshot 2025-10-02 174948.png" alt="Rover CAD 3">
           </div>
-          <div class="gallery-item" style="aspect-ratio: 1; border-radius: 8px; overflow: hidden; background-color: #2A2A2A;">
-            <img src="Manufacturing/HACK/image6.jpg" alt="Rover Photo 1" style="width: 100%; height: 100%; object-fit: cover; transition: all 0.3s ease; cursor: pointer;">
+          <div class="gallery-item">
+            <img src="Manufacturing/HACK/image6.jpg" alt="Rover Photo 1">
           </div>
-          <div class="gallery-item" style="aspect-ratio: 1; border-radius: 8px; overflow: hidden; background-color: #2A2A2A;">
-            <img src="Manufacturing/HACK/IMG_3582.jpg" alt="Rover Photo 2" style="width: 100%; height: 100%; object-fit: cover; transition: all 0.3s ease; cursor: pointer;">
+          <div class="gallery-item">
+            <img src="Manufacturing/HACK/IMG_3582.jpg" alt="Rover Photo 2">
           </div>
         </div>
         <p class="project-description">Modeled and assembled all rover components in SolidWorks, including the chassis frame, arm mechanism with integrated claw, gear systems, and sensor mounts. Oversaw manufacturing and assembly integration to ensure all subsystems worked cohesively. The rover prototype was designed to navigate terrain and manipulate objects in a 48-hour competition environment.</p>
-        <div style="margin-top: 1.5rem;">
+        <div class="gallery-link-wrapper">
           <a href="Manufacturing/HACK/image6.jpg" target="_blank" class="project-link">View Photos ↗</a>
         </div>
       </div>
 
       <!-- Rocket Project -->
-      <div class="gallery-project" id="rocket" style="margin-top: 3rem; padding-top: 3rem; border-top: 1px solid #333333;">
-        <h2 class="section-title" style="font-size: 2rem; text-align: left; margin-bottom: 2rem; color: #E0E0E0;">Mid-Powered Rocket Project</h2>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 3rem;">
-          <div class="gallery-item" style="aspect-ratio: 1; border-radius: 8px; overflow: hidden; background-color: #2A2A2A;">
-            <img src="CAD/ROCKET/unnamed (1).png" alt="Rocket CAD 1" style="width: 100%; height: 100%; object-fit: cover; transition: all 0.3s ease; cursor: pointer;">
+      <div class="gallery-project" id="rocket">
+        <h2 class="section-title">Mid-Powered Rocket Project</h2>
+        <div class="gallery-grid">
+          <div class="gallery-item">
+            <img src="CAD/ROCKET/unnamed (1).png" alt="Rocket CAD 1">
           </div>
-          <div class="gallery-item" style="aspect-ratio: 1; border-radius: 8px; overflow: hidden; background-color: #2A2A2A;">
-            <img src="CAD/ROCKET/unnamed.png" alt="Rocket CAD 2" style="width: 100%; height: 100%; object-fit: cover; transition: all 0.3s ease; cursor: pointer;">
+          <div class="gallery-item">
+            <img src="CAD/ROCKET/unnamed.png" alt="Rocket CAD 2">
           </div>
-          <div class="gallery-item" style="aspect-ratio: 1; border-radius: 8px; overflow: hidden; background-color: #2A2A2A;">
-            <img src="CAD/ROCKET/unnamed (2).png" alt="Rocket CAD 3" style="width: 100%; height: 100%; object-fit: cover; transition: all 0.3s ease; cursor: pointer;">
+          <div class="gallery-item">
+            <img src="CAD/ROCKET/unnamed (2).png" alt="Rocket CAD 3">
           </div>
-          <div class="gallery-item" style="aspect-ratio: 1; border-radius: 8px; overflow: hidden; background-color: #2A2A2A;">
-            <img src="CAD/ROCKET/image3.jpg" alt="Rocket Photo 1" style="width: 100%; height: 100%; object-fit: cover; transition: all 0.3s ease; cursor: pointer;">
+          <div class="gallery-item">
+            <img src="CAD/ROCKET/image3.jpg" alt="Rocket Photo 1">
           </div>
         </div>
         <p class="project-description">Developed both the OpenRocket simulation model and comprehensive CAD designs for a G-class rocket designed to reach 3,000 feet while protecting an egg payload. Iterated through multiple design prototypes using SolidWorks. Integrated advanced fabrication techniques including 3D printing for custom components, fiberglass layups for the airframe, and laser cutting for structural elements. Successfully coordinated testing and design reviews to ensure mission success.</p>
-        <div style="margin-top: 1.5rem;">
+        <div class="gallery-link-wrapper">
           <a href="CAD/ROCKET/unnamed (1).png" target="_blank" class="project-link">View Renderings ↗</a>
         </div>
       </div>
@@ -123,9 +124,9 @@
   </footer>
 
   <!-- Image Lightbox Modal -->
-  <div id="imageModal" style="display:none; position:fixed; z-index:2000; left:0; top:0; width:100%; height:100%; background-color:rgba(0,0,0,0.9); padding:20px;">
-    <span style="position:absolute; top:30px; right:40px; font-size:40px; color:#E0E0E0; cursor:pointer;" onclick="closeImageModal()">&times;</span>
-    <img id="modalImage" style="max-width:90%; max-height:85vh; margin:50px auto; display:block; object-fit:contain;" />
+  <div id="imageModal">
+    <span class="modal-close" onclick="closeImageModal()">&times;</span>
+    <img id="modalImage" />
   </div>
 
   <script>
@@ -146,18 +147,18 @@
     function openImageModal(imgSrc) {
       const modal = document.getElementById('imageModal');
       const modalImg = document.getElementById('modalImage');
-      modal.style.display = 'block';
+      modal.classList.add('active');
       modalImg.src = imgSrc;
     }
 
     function closeImageModal() {
-      document.getElementById('imageModal').style.display = 'none';
+      document.getElementById('imageModal').classList.remove('active');
     }
 
     // Close modal when clicking outside the image
     document.getElementById('imageModal').addEventListener('click', function(event) {
       if (event.target === this) {
-        closeImageModal();
+        this.classList.remove('active');
       }
     });
 

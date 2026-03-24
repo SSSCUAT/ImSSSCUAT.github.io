@@ -634,6 +634,87 @@ body {
   box-shadow: 0 12px 28px rgba(255, 255, 255, 0.2);
 }
 
+/* ===== CONTACT FORM ===== */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: #D7D3CE;
+}
+
+.form-group input,
+.form-group textarea {
+  padding: 14px 16px;
+  border: 1px solid #444;
+  border-radius: 2px;
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  background-color: #2A2A2A;
+  color: #E0E0E0;
+  transition: all 0.3s ease;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #888888;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #FFFFFF;
+  background-color: #333333;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.05);
+}
+
+.submit-btn {
+  padding: 14px 32px;
+  background-color: #FFFFFF;
+  color: #000000;
+  border: none;
+  border-radius: 2px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Inter', sans-serif;
+  margin-top: 1rem;
+}
+
+.submit-btn:hover {
+  background-color: rgba(255, 255, 255, 0.85);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(255, 255, 255, 0.15);
+}
+
+.contact-methods-divider {
+  margin-top: 3rem;
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 2rem;
+}
+
+.contact-methods-divider p {
+  font-size: 0.95rem;
+  color: #888888;
+  margin-bottom: 1.5rem;
+}
+
 @media (max-width: 768px) {
   .contact {
     padding: 100px 5%;
@@ -647,6 +728,143 @@ body {
     padding: 0.7rem 1.5rem;
     font-size: 0.8rem;
   }
+
+  .form-group input,
+  .form-group textarea {
+    padding: 12px 14px;
+    font-size: 1rem;
+  }
+
+  .submit-btn {
+    padding: 12px 24px;
+    font-size: 0.8rem;
+  }
+}
+
+/* ===== GALLERY PAGE ===== */
+.gallery-hero {
+  margin-top: 80px;
+  min-height: auto;
+  padding: 3rem 1.5rem 2rem;
+}
+
+.gallery-hero-content {
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  text-align: center;
+}
+
+.gallery-hero-text {
+  justify-content: flex-start;
+}
+
+.gallery-hero .hero-title {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  color: #F0F0F0;
+}
+
+.gallery-hero .hero-subtitle {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 0;
+  color: #B0B0B0;
+}
+
+.gallery-projects-section {
+  padding-top: 2rem;
+}
+
+.gallery-project {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: none;
+}
+
+.gallery-project:not(:first-child) {
+  margin-top: 3rem;
+  padding-top: 3rem;
+  border-top: 1px solid #333333;
+}
+
+.gallery-project .section-title {
+  font-size: 2rem;
+  text-align: left;
+  margin-bottom: 2rem;
+  color: #E0E0E0;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.gallery-item {
+  aspect-ratio: 1;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #2A2A2A;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.gallery-item img:hover {
+  transform: scale(1.05);
+}
+
+.gallery-link-wrapper {
+  margin-top: 1.5rem;
+}
+
+.gallery-link-wrapper .project-link {
+  margin-right: 1.5rem;
+}
+
+/* ===== IMAGE MODAL ===== */
+#imageModal {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  padding: 20px;
+}
+
+#imageModal.active {
+  display: block;
+}
+
+#imageModal .modal-close {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  font-size: 40px;
+  color: #E0E0E0;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+#imageModal .modal-close:hover {
+  color: #FFFFFF;
+}
+
+#modalImage {
+  max-width: 90%;
+  max-height: 85vh;
+  margin: 50px auto;
+  display: block;
+  object-fit: contain;
 }
 
 /* ===== FOOTER ===== */
