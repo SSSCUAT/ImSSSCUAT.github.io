@@ -1,239 +1,251 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Diego Reynoso</title>
-
-  <link rel="stylesheet" href="stylez.css" />
-  <script src="ap.js" defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diego Reynoso | Aerospace Engineering Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-  <nav>
-    <a href="#home" id="nav-home">Home</a>
-    <a href="#projects" id="nav-projects">Projects</a>
-    <a href="#contact" id="nav-contact">Contact</a>
-    <a href="gallery.html" id="nav-gallery">Engineering Gallery</a>
-    <a href="diego_reynoso_resume.pdf" target="_blank">Resume</a>
+
+  <!-- NAVIGATION BAR -->
+  <nav class="navbar">
+    <div class="navbar-container">
+      <div class="navbar-logo">
+        <a href="index.html">Diego Reynoso</a>
+      </div>
+      <ul class="nav-menu">
+        <li><a href="#home" class="nav-link">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+        <!-- <li><a href="contact.html" class="nav-link">Contact</a></li> -->
+        <li><a href="diego_reynoso_resume.pdf" class="nav-resume-btn" target="_blank">Resume</a></li>
+      </ul>
+    </div>
   </nav>
 
-  <!-- ===================== HOME SECTION ===================== -->
-  <section id="home" class="fade-in section-1">
-    <div class="First-Row">
-      <div class="Intro-Container">
-        <!-- MAIN PROFILE IMAGE (from images.Diego folder) -->
-        <img class="slideshow" src="images.Diego\FullSizeRender.JPG" alt="Diego Reynoso" />
-        <h1>Diego Reynoso</h1>
-  <p class="intro-description">I’m an Aerospace Engineering student at UCLA with a passion for solving real-world problems through hands-on design, testing, and iteration. My interests center on fluid mechanics, as well as mechanical and thermal systems, which are reflected in much of my academic and project work. I bring strong leadership experience from previous roles and thrive in collaborative environments where teams tackle difficult engineering challenges together. I am currently engaged in aerospace research and continue to grow my skills through both academic work and independent projects in clubs and engineering organizations.</p>
-      </div>
+  <!-- HERO SECTION -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <h1 class="hero-title fade-in">Aerospace Engineering Portfolio</h1>
+      <p class="hero-subtitle fade-in">Designing solutions through hands-on engineering, research, and innovation</p>
+      <a href="#projects" class="hero-button fade-in">Explore My Work</a>
     </div>
   </section>
-  <!-- ===================== END HOME SECTION ===================== -->
 
-  <!-- ===================== RESEARCH PROJECTS SECTION (NOW FIRST) ===================== -->
-  <section id="summer-research" class="fade-in section-2">
-    <h2 class="contact-title">Summer Research Projects</h2>
-    <div class="research-carousel-container">
-      <!-- Carousel Arrows and Images for Research Project -->
-      <button class="carousel-arrow left-arrow" id="research-left-arrow">
-        <svg viewBox="0 0 24 24">
-          <circle cx="12" cy="12" r="12" fill="none" />
-          <polyline points="15 6 9 12 15 18" stroke="#232526" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" />
-        </svg>
-      </button>
-      <div class="research-carousel-images">
-        <!-- MAIN RESEARCH IMAGE (from images.Diego folder) -->
-        <img src="Manufacturing\Research\supr-poster-symposium-013.JPEG" class="research-carousel-image active" alt="Research 1" />
-        <!-- ADD RESEARCH PROJECT IMAGES BELOW (from manufacturing folder) -->
-        <img src="Manufacturing\Research\IMG_8013.jpeg" class="research-carousel-image" alt="Research 2" />
-        <img src="Manufacturing\Research\IMG_4374.PNG" class="research-carousel-image" alt="Research 3" />
-        <!-- To add more, copy the line above and update src/alt -->
-      </div>
-      <button class="carousel-arrow right-arrow" id="research-right-arrow">
-        <svg viewBox="0 0 24 24">
-          <circle cx="12" cy="12" r="12" fill="none" />
-          <polyline points="9 6 15 12 9 18" stroke="#232526" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" />
-        </svg>
-      </button>
-    </div>
-    <!-- RESEARCH CAPTION AND DESCRIPTION -->
-    <div class="Description bottom-description">
-  <p class="p">I conducted hands-on research under Professor Ann Karagozian in UCLA’s Energy and Propulsion Laboratory, focusing on unsteady and periodic turbulent flows. My work combined experimental setup, design, and manufacturing of custom components to support advanced PIV (Particle Image Velocimetry) and PLIF (Planar Laser-Induced Fluorescence) measurements. Through this project, I gained deeper insight into strategies for enhancing mixing in air-breathing engines and thrust vectoring applications. The experience strengthened both my technical foundation in fluid dynamics and my ability to design precise, reliable experimental hardware.</p>
-    </div>
-  </section>
-  <!-- ===================== END RESEARCH PROJECTS SECTION ===================== -->
-
-  <!-- ===================== ROVER PROJECT SECTION (NOW SECOND) ===================== -->
-  <section class="fade-in section-3">
-    <div class="carousel-container rover-carousel-container">
-      <!-- Carousel Arrows and Images for Rover Project -->
-      <button class="carousel-arrow left-arrow" id="rover-left-arrow">
-        <svg viewBox="0 0 24 24">
-          <circle cx="12" cy="12" r="12" fill="none" />
-          <polyline points="15 6 9 12 15 18" stroke="#232526" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" />
-        </svg>
-      </button>
-      <div class="carousel-images rover-carousel-images">
-        <!-- MAIN ROVER IMAGE (from images.Diego folder) -->
-        <img src="Manufacturing\HACK\image6.jpg" class="carousel-image rover-carousel-image active" alt="Rover 1" />
-        <!-- ADD ROVER PROJECT IMAGES BELOW (from manufacturing folder) -->
-        <img src="Manufacturing\HACK\IMG_3582.jpg" class="carousel-image rover-carousel-image" alt="Rover 2" />
-        <img src="Manufacturing\HACK\image4.jpg" class="carousel-image rover-carousel-image" alt="Rover 3" />
-        <img src="Manufacturing\HACK\IMG_3553.jpeg" class="carousel-image rover-carousel-image" alt="Rover 4" />
-        <img src="Manufacturing\HACK\IMG_3537.jpeg" class="carousel-image rover-carousel-image" alt="Rover 5" />
-        <!-- To add more, copy the line above and update src/alt -->
-      </div>
-      <button class="carousel-arrow right-arrow" id="rover-right-arrow">
-        <svg viewBox="0 0 24 24">
-          <circle cx="12" cy="12" r="12" fill="none" />
-          <polyline points="9 6 15 12 9 18" stroke="#232526" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" />
-        </svg>
-      </button>
-    </div>
-    <!-- ROVER CAPTION AND DESCRIPTION -->
-    <div class="Description bottom-description">
-      <h2>Mars Rover Project, UCLA HAcK Competition</h2> <!-- Update title here -->
-  <p class="p">I participated in a 48-hour design challenge to create a Mars rover prototype. As CAD lead, I designed the chassis in SolidWorks and led the development of the arm and claw mechanisms, integrating gear systems and sensors for mobility and manipulation. I also supported manufacturing and assembly to ensure smooth integration of all subsystems. Our team received Honorable Mention for both the manufacturing quality and the creativity of our design.</p>
-    </div>
-  </section>
-  <!-- ===================== END ROVER PROJECT SECTION ===================== -->
-
-  <!-- ===================== ROCKET PROJECT SECTION (NOW THIRD) ===================== -->
-  <section id="projects" class="fade-in section-4">
-    <div class="Media-Row column-layout">
-      <div class="carousel-container rocket-carousel-container">
-        <!-- Carousel Arrows and Images for Rocket Project -->
-        <button class="carousel-arrow left-arrow" id="rocket-left-arrow">
-          <svg viewBox="0 0 24 24">
-            <circle cx="12" cy="12" r="12" fill="none" />
-            <polyline points="15 6 9 12 15 18" stroke="#232526" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" />
-          </svg>
-        </button>
-        <div class="carousel-images rocket-carousel-images">
-          <!-- MAIN ROCKET IMAGE (from images.Diego folder) -->
-          <img src="Manufacturing\ROCKET\image1.jpg" class="carousel-image rocket-carousel-image active" alt="Rocket 1" />
-          <!-- ADD ROCKET PROJECT IMAGES BELOW (from manufacturing folder) -->
-          <img src="Manufacturing\ROCKET\IMG_6912.jpeg" class="carousel-image rocket-carousel-image" alt="Rocket 2" />
-          <img src="Manufacturing\ROCKET\IMG_6917.jpeg" class="carousel-image rocket-carousel-image" alt="Rocket 3" />
-          <img src="Manufacturing\ROCKET\IMG_5986.jpg" class="carousel-image rocket-carousel-image" alt="Rocket 4" />
-          <!-- To add more, copy the line above and update src/alt -->
+  <!-- ABOUT SECTION -->
+  <section class="about" id="about">
+    <div class="about-container">
+      <h2 class="section-title fade-in">About Me</h2>
+      <div class="about-layout">
+        <div class="about-image-column fade-in">
+          <img src="Hobbies\IMG_2148.jpeg" alt="Diego Reynoso" class="profile-pic">
         </div>
-        <button class="carousel-arrow right-arrow" id="rocket-right-arrow">
-          <svg viewBox="0 0 24 24">
-            <circle cx="12" cy="12" r="12" fill="none" />
-            <polyline points="9 6 15 12 9 18" stroke="#232526" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" />
-          </svg>
-        </button>
-      </div>
-      <!-- ROCKET CAPTION AND DESCRIPTION -->
-      <div class="Description bottom-description">
-        <h2>Group Mid-Powered Rocket Project</h2> <!-- Update title here -->
-  <p class="p">As part of a three-person team, I led the design, construction, and testing of a G-class rocket with the mission of reaching 3,000 feet. The rocket was designed to protect an egg and house an Adalogger sensor payload. Using SolidWorks for CAD modeling and OpenRocket for simulation, I developed multiple prototypes and iterations, employing fabrication methods such as fiberglass layups, laser cutting, and 3D printing. I also led design review presentations and coordinated testing, ensuring our final rocket met both mission requirements and safety standards.</p>
+        <div class="about-text-column fade-in">
+          <p class="about-description">I'm an Aerospace Engineering student at UCLA with a passion for solving real-world problems through hands-on design, testing, and iteration. My interests center on fluid mechanics, as well as mechanical and thermal systems, which are reflected in much of my academic and project work. I bring strong leadership experience from previous roles and thrive in collaborative environments where teams tackle difficult engineering challenges together.</p>
+          <div class="about-highlights">
+            <div class="about-item fade-in">
+              <h3 class="about-item-title">Research Focus</h3>
+              <p>Fluid mechanics, thermal systems, and experimental design methodologies</p>
+            </div>
+            <div class="about-item fade-in">
+              <h3 class="about-item-title">Technical Skills</h3>
+              <p>CAD design, MATLAB, Python, wind tunnel testing, CFD analysis</p>
+            </div>
+            <div class="about-item fade-in">
+              <h3 class="about-item-title">Leadership</h3>
+              <p>Team coordination, project management, mentoring junior engineers</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
-  <!-- ===================== END ROCKET PROJECT SECTION ===================== -->
+
+  <!-- PROJECTS SECTION -->
+  <section class="projects" id="projects">
+    <div class="projects-container">
+      <h2 class="section-title fade-in">Featured Projects</h2>
+      <div class="projects-grid">
+        
+        <div class="project-card fade-in">
+          <div class="project-image-wrapper">
+            <img src="Manufacturing\Research\supr-poster-symposium-013.JPEG" alt="Summer Research - PLIF/PIV Study" class="project-image">
+          </div>
+          <div class="project-info">
+            <h3 class="project-title">Summer Research</h3>
+            <p class="project-description">Conducted particle image velocimetry (PIV) and planar laser-induced fluorescence (PLIF) experiments to study fluid flow dynamics and heat transfer phenomena in a controlled laboratory environment.</p>
+            <div class="project-tags">
+              <span class="tag">Fluid Mechanics</span>
+              <span class="tag">Research</span>
+            </div>
+            <div class="project-button-group">
+              <a href="#projects" class="project-link">Learn More →</a>
+              <a href="gallery.html" class="project-gallery-link">View Project Gallery →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card fade-in">
+          <div class="project-image-wrapper">
+            <img src="Manufacturing/HACK/image6.jpg" alt="Mars Rover - 48-Hour Competition" class="project-image">
+          </div>
+          <div class="project-info">
+            <h3 class="project-title">Mars Rover</h3>
+            <p class="project-description">Designed and built a fully functional rover prototype in 48 hours for a competitive engineering challenge, incorporating autonomous navigation, sensor integration, and robust mechanical design.</p>
+            <div class="project-tags">
+              <span class="tag">Mechanical Design</span>
+              <span class="tag">Competition</span>
+            </div>
+            <div class="project-button-group">
+              <a href="#projects" class="project-link">Learn More →</a>
+              <a href="gallery.html" class="project-gallery-link">View Project Gallery →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card fade-in">
+          <div class="project-image-wrapper">
+            <img src="Manufacturing\ROCKET\image1.jpg" alt="Mid-Powered Rocket - 3,000 Feet Altitude" class="project-image">
+          </div>
+          <div class="project-info">
+            <h3 class="project-title">Mid-Powered Rocket</h3>
+            <p class="project-description">Engineered and launched a mid-powered rocket reaching an altitude of 3,000 feet. Performed extensive structural analysis, propulsion calculations, and recovery system design to ensure safe and successful flight.</p>
+            <div class="project-tags">
+             div class="project-button-group">
+              <a href="#projects" class="project-link">Learn More →</a>
+              <a href="gallery.html" class="project-gallery-link">View Project Gallery →</a>
+            </div
+              <span class="tag">Structural</span>
+            </div>
+            <a href="#projects" class="project-link">Learn More →</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS SECTION -->
+  <section class="skills" id="skills">
+    <div class="skills-container">
+      <h2 class="section-title fade-in">Technical Skills</h2>
+      <div class="skills-grid">
+        
+        <div class="skill-card fade-in">
+          <h3 class="skill-card-title">Design & CAD</h3>
+          <ul class="skill-list">
+            <li>SolidWorks</li>
+            <li>AutoCAD</li>
+            <li>3D Modeling</li>
+            <li>Technical Drawing</li>
+            <li>Design Analysis</li>
+          </ul>
+        </div>
+
+        <div class="skill-card fade-in">
+          <h3 class="skill-card-title">Fluid & Thermal</h3>
+          <ul class="skill-list">
+            <li>CFD Simulation</li>
+            <li>MATLAB</li>
+            <li>Thermodynamics</li>
+            <li>Heat Transfer</li>
+            <li>Fluid Dynamics</li>
+          </ul>
+        </div>
+
+        <div class="skill-card fade-in">
+          <h3 class="skill-card-title">Manufacturing</h3>
+          <ul class="skill-list">
+            <li>CNC Machining</li>
+            <li>Composite Materials</li>
+            <li>Fabrication</li>
+            <li>Quality Control</li>
+            <li>Process Design</li>
+          </ul>
+        </div>
+
+        <div class="skill-card fade-in">
+          <h3 class="skill-card-title">Other</h3>
+          <ul class="skill-list">
+            <li>Python</li>
+            <li>Data Analysis</li>
+            <li>Project Management</li>
+            <li>Technical Writing</li>
+            <li>Leadership</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
 
   <!-- CONTACT SECTION -->
-  <section id="contact" class="fade-in section-4">
-    <h2 class="contact-title">Contact</h2>
-    <div class="contact-buttons">
-      <a href="contact.html" class="contact-btn">Send Me a Message</a>
-      <a href="https://www.linkedin.com/in/diego-reynoso-ramos-a04876317/" target="_blank"
-        class="contact-btn">LinkedIn</a>
-      <a href="https://ucla.joinhandshake.com/profiles/57150541" target="_blank" class="contact-btn">Handshake</a>
-      <a href="https://github.com/SSSCUAT" target="_blank" class="contact-btn">GitHub</a>
+  <section class="contact">
+    <div class="contact-container">
+      <h2 class="section-title fade-in">Get In Touch</h2>
+      <p class="contact-subtitle fade-in">I'm always interested in discussing engineering projects, research opportunities, or collaborations.</p>
+      <div class="contact-links fade-in">
+        <a href="https://linkedin.com" class="contact-link" target="_blank">LinkedIn</a>
+        <a href="https://github.com" class="contact-link" target="_blank">GitHub</a>
+        <!-- <a href="contact.html" class="contact-link">Send Message</a> -->
+        <a href="diego_reynoso_resume.pdf" class="contact-link" target="_blank">Download Resume</a>
+      </div>
     </div>
   </section>
 
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-content">
+      <p>&copy; 2026 Diego Reynoso. All rights reserved.</p>
+      <p>Aerospace Engineering Student | UCLA</p>
+    </div>
+  </footer>
+
+  <!-- SCROLL ANIMATION SCRIPT -->
   <script>
-    // Highlight active nav button based on scroll position
-    function setActiveNav() {
-      const sections = [
-        {id: 'home', nav: 'nav-home'},
-        {id: 'projects', nav: 'nav-projects'},
-        {id: 'contact', nav: 'nav-contact'}
-      ];
-      let activeFound = false;
-      sections.forEach(section => {
-        const el = document.getElementById(section.id);
-        const navEl = document.getElementById(section.nav);
-        if (el && navEl) {
-          const rect = el.getBoundingClientRect();
-          if (rect.top <= 80 && rect.bottom > 80 && !activeFound) {
-            navEl.classList.add('active');
-            activeFound = true;
-          } else {
-            navEl.classList.remove('active');
-          }
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver(function(entries) {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
         }
       });
-      // Remove active from gallery button on index.html
-      const galleryNav = document.getElementById('nav-gallery');
-      if (galleryNav) galleryNav.classList.remove('active');
-    }
-    window.addEventListener('scroll', setActiveNav);
-    window.addEventListener('DOMContentLoaded', setActiveNav);
+    }, observerOptions);
 
-    // Rocket Carousel Functionality
-    const rocketImages = document.querySelectorAll('.rocket-carousel-image');
-    const rocketLeftArrow = document.getElementById('rocket-left-arrow');
-    const rocketRightArrow = document.getElementById('rocket-right-arrow');
-    let rocketIndex = 0;
-    function showRocketImage(idx) {
-      rocketImages.forEach((img, i) => {
-        img.classList.toggle('active', i === idx);
-      });
-    }
-    rocketLeftArrow.addEventListener('click', () => {
-      rocketIndex = (rocketIndex - 1 + rocketImages.length) % rocketImages.length;
-      showRocketImage(rocketIndex);
-    });
-    rocketRightArrow.addEventListener('click', () => {
-      rocketIndex = (rocketIndex + 1) % rocketImages.length;
-      showRocketImage(rocketIndex);
+    document.querySelectorAll('.fade-in').forEach(element => {
+      observer.observe(element);
     });
 
-    // Rover Carousel Functionality
-    const roverImages = document.querySelectorAll('.rover-carousel-image');
-    const roverLeftArrow = document.getElementById('rover-left-arrow');
-    const roverRightArrow = document.getElementById('rover-right-arrow');
-    let roverIndex = 0;
-    function showRoverImage(idx) {
-      roverImages.forEach((img, i) => {
-        img.classList.toggle('active', i === idx);
-      });
-    }
-    roverLeftArrow.addEventListener('click', () => {
-      roverIndex = (roverIndex - 1 + roverImages.length) % roverImages.length;
-      showRoverImage(roverIndex);
-    });
-    roverRightArrow.addEventListener('click', () => {
-      roverIndex = (roverIndex + 1) % roverImages.length;
-      showRoverImage(roverIndex);
+    // Navbar scroll effect
+    window.addEventListener('scroll', function() {
+      const navbar = document.querySelector('.navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
     });
 
-    // Summer Research Carousel Functionality
-    const researchImages = document.querySelectorAll('.research-carousel-image');
-    const leftArrow = document.getElementById('research-left-arrow');
-    const rightArrow = document.getElementById('research-right-arrow');
-    let researchIndex = 0;
-    function showResearchImage(idx) {
-      researchImages.forEach((img, i) => {
-        img.classList.toggle('active', i === idx);
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
       });
-    }
-    leftArrow.addEventListener('click', () => {
-      researchIndex = (researchIndex - 1 + researchImages.length) % researchImages.length;
-      showResearchImage(researchIndex);
-    });
-    rightArrow.addEventListener('click', () => {
-      researchIndex = (researchIndex + 1) % researchImages.length;
-      showResearchImage(researchIndex);
     });
   </script>
-</body>
 
+</body>
 </html>
