@@ -314,14 +314,20 @@
 
         <div class="control-section">
             <label class="control-label">Pico W IP Address</label>
-            <input 
-                type="text" 
-                class="ip-input" 
-                id="picoIP" 
-                placeholder="192.168.1.100" 
-                value="192.168.1.100"
-            >
-            <p class="help-text">Enter your Pico W's IP address</p>
+            <div style="display: flex; gap: 10px; margin-bottom: 10px;">
+                <input 
+                    type="text" 
+                    class="ip-input" 
+                    id="picoIP" 
+                    placeholder="192.168.1.100" 
+                    value="172.20.10.4"
+                    style="flex: 1;"
+                >
+                <button id="connectBtn" style="padding: 12px 24px; background: #667eea; color: white; border: none; border-radius: 8px; font-weight: 600; cursor: pointer; white-space: nowrap; transition: all 0.3s ease;">
+                    Connect
+                </button>
+            </div>
+            <p class="help-text">Enter IP and click Connect (or press Enter)</p>
         </div>
 
         <div class="status-box">
@@ -396,6 +402,7 @@
 
         // DOM Elements
         const picoIPInput = document.getElementById('picoIP');
+        const connectBtn = document.getElementById('connectBtn');
         const positionDisplay = document.getElementById('positionDisplay');
         const speedDisplay = document.getElementById('speedDisplay');
         const directionDisplay = document.getElementById('directionDisplay');
@@ -412,6 +419,15 @@
 
         // Initialize
         updateDisplay();
+
+        // Event Listeners - Connect button and Enter key
+        connectBtn.addEventListener('click', testConnection);
+        picoIPInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                testConnection();
+            }
+        });
 
         // Event Listeners - Keyboard
         document.addEventListener('keydown', (e) => {
@@ -441,6 +457,39 @@
         speedSlider.addEventListener('input', handleSpeedChange);
 
         // Control Functions
+        function testConnection() {
+            const picoIP = picoIPInput.value.trim();
+            if (!picoIP) {
+                alert('Please enter Pico W IP address');
+                return;
+            }
+
+            connectBtn.disabled = true;
+            connectBtn.textContent = 'Testing...';
+            connectBtn.style.opacity = '0.6';
+
+            const url = `http://${picoIP}/status`;
+
+            fetch(url, { method: 'GET' })
+                .then(response => response.json())
+                .then(data => {
+                    setConnected(true);
+                    alert(`✓ Connected! Servo at ${data.position}°`);
+                    connectBtn.textContent = 'Connected ✓';
+                    connectBtn.style.background = '#4CAF50';
+                })
+                .catch(error => {
+                    setConnected(false);
+                    alert(`✗ Cannot connect to ${picoIP}\n\nMake sure:\n• Pico W is powered on\n• IP address is correct\n• Both are on same network`);
+                    connectBtn.textContent = 'Connect';
+                    connectBtn.style.background = '#667eea';
+                })
+                .finally(() => {
+                    connectBtn.disabled = false;
+                    connectBtn.style.opacity = '1';
+                });
+        }
+
         function rotateLeft() {
             if (state.position > POSITION_MIN) {
                 state.position = Math.max(POSITION_MIN, state.position - POSITION_STEP);
@@ -482,7 +531,7 @@
         function sendCommand() {
             const picoIP = picoIPInput.value.trim();
             if (!picoIP) {
-                alert('Please enter Pico W IP address');
+                alert('Please enter Pico W IP address and click Connect first');
                 return;
             }
 
