@@ -1,123 +1,545 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact Diego Reynoso | Aerospace Engineer</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servo Motor Control</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            padding: 40px;
+            max-width: 500px;
+            width: 100%;
+            animation: slideUp 0.6s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            font-size: 28px;
+            color: #333;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #999;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+
+        .status-box {
+            background: #f5f5f5;
+            border-left: 4px solid #667eea;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            min-height: 80px;
+        }
+
+        .status-item {
+            display: flex;
+            justify-content: space-between;
+            margin: 8px 0;
+            font-size: 14px;
+        }
+
+        .status-label {
+            color: #666;
+            font-weight: 500;
+        }
+
+        .status-value {
+            color: #667eea;
+            font-weight: 700;
+            font-family: 'Courier New', monospace;
+        }
+
+        .control-section {
+            margin-bottom: 30px;
+        }
+
+        .control-label {
+            font-size: 13px;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .arrow-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .arrow-btn {
+            aspect-ratio: 1;
+            border: none;
+            border-radius: 12px;
+            font-size: 24px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            background: #f0f0f0;
+            color: #333;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            grid-column: auto;
+        }
+
+        .arrow-btn:hover {
+            background: #e0e0e0;
+            transform: scale(1.05);
+        }
+
+        .arrow-btn:active {
+            transform: scale(0.95);
+            background: #d0d0d0;
+        }
+
+        .arrow-btn.up {
+            grid-column: 2;
+        }
+
+        .arrow-btn.down {
+            grid-column: 2;
+        }
+
+        .arrow-btn.left {
+            grid-column: 1;
+        }
+
+        .arrow-btn.right {
+            grid-column: 3;
+        }
+
+        .direction-buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .dir-btn {
+            padding: 15px;
+            border: 2px solid #667eea;
+            border-radius: 12px;
+            background: white;
+            color: #667eea;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+
+        .dir-btn:hover {
+            background: #f0f0ff;
+            transform: translateY(-2px);
+        }
+
+        .dir-btn.active {
+            background: #667eea;
+            color: white;
+        }
+
+        .connection-indicator {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px;
+            background: #f0f0f0;
+            border-radius: 8px;
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .status-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #ddd;
+            animation: pulse 2s infinite;
+        }
+
+        .status-dot.connected {
+            background: #4CAF50;
+            animation: none;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.5;
+            }
+        }
+
+        .speed-slider {
+            width: 100%;
+            height: 6px;
+            border-radius: 3px;
+            background: #e0e0e0;
+            outline: none;
+            -webkit-appearance: none;
+            appearance: none;
+            margin: 15px 0;
+        }
+
+        .speed-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #667eea;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .speed-slider::-webkit-slider-thumb:hover {
+            transform: scale(1.2);
+            box-shadow: 0 0 10px rgba(102, 126, 234, 0.5);
+        }
+
+        .speed-slider::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #667eea;
+            cursor: pointer;
+            border: none;
+            transition: all 0.2s ease;
+        }
+
+        .speed-slider::-moz-range-thumb:hover {
+            transform: scale(1.2);
+            box-shadow: 0 0 10px rgba(102, 126, 234, 0.5);
+        }
+
+        .speed-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .speed-display {
+            text-align: center;
+            flex: 1;
+        }
+
+        .speed-number {
+            font-size: 20px;
+            font-weight: 700;
+            color: #667eea;
+            font-family: 'Courier New', monospace;
+        }
+
+        .ip-input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 14px;
+            margin-bottom: 10px;
+            font-family: 'Courier New', monospace;
+            transition: border-color 0.3s ease;
+        }
+
+        .ip-input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .info-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 12px;
+            color: #856404;
+            margin-top: 20px;
+            line-height: 1.6;
+        }
+
+        .help-text {
+            font-size: 12px;
+            color: #999;
+            margin-top: 8px;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-  <!-- Navigation -->
-  <nav class="navbar">
-    <div class="navbar-container">
-      <div class="navbar-logo"><a href="index.html">Diego Reynoso</a></div>
-      <ul class="nav-menu">
-        <li><a href="index.html#about" class="nav-link">About</a></li>
-        <li><a href="index.html#projects" class="nav-link">Projects</a></li>
-        <li><a href="index.html#skills" class="nav-link">Skills</a></li>
-        <li><a href="gallery.html" class="nav-link">Gallery</a></li>
-        <li><a href="contact.html" class="nav-link active">Contact</a></li>
-        <li><a href="diego_reynoso_resume.pdf" class="nav-resume-btn" target="_blank">Resume</a></li>
-      </ul>
+    <div class="container">
+        <h1>🎮 Servo Control</h1>
+        <p class="subtitle">Control your servo with arrow keys</p>
+
+        <div class="connection-indicator">
+            <div class="status-dot" id="statusDot"></div>
+            <span id="connectionStatus">Disconnected</span>
+        </div>
+
+        <div class="control-section">
+            <label class="control-label">Pico W IP Address</label>
+            <input 
+                type="text" 
+                class="ip-input" 
+                id="picoIP" 
+                placeholder="192.168.1.100" 
+                value="192.168.1.100"
+            >
+            <p class="help-text">Enter your Pico W's IP address</p>
+        </div>
+
+        <div class="status-box">
+            <div class="status-item">
+                <span class="status-label">Position:</span>
+                <span class="status-value" id="positionDisplay">90°</span>
+            </div>
+            <div class="status-item">
+                <span class="status-label">Speed:</span>
+                <span class="status-value" id="speedDisplay">50 ms</span>
+            </div>
+            <div class="status-item">
+                <span class="status-label">Direction:</span>
+                <span class="status-value" id="directionDisplay">Stopped</span>
+            </div>
+        </div>
+
+        <div class="control-section">
+            <label class="control-label">← → Rotate</label>
+            <div class="arrow-grid">
+                <button class="arrow-btn left" id="leftBtn">◀</button>
+                <button class="arrow-btn up" id="upBtn">⬆</button>
+                <button class="arrow-btn right" id="rightBtn">▶</button>
+                <button class="arrow-btn down" id="downBtn">⬇</button>
+            </div>
+            <p class="help-text">← → Arrow keys to rotate • ↑ ↓ to adjust speed</p>
+        </div>
+
+        <div class="control-section">
+            <label class="control-label">⏱ Speed Control (ms between steps)</label>
+            <div class="speed-container">
+                <span style="color: #999; font-size: 12px;">Fast</span>
+                <input 
+                    type="range" 
+                    class="speed-slider" 
+                    id="speedSlider" 
+                    min="10" 
+                    max="200" 
+                    value="50"
+                >
+                <span style="color: #999; font-size: 12px;">Slow</span>
+            </div>
+            <div class="speed-display">
+                <span class="speed-number" id="speedValue">50</span> ms
+            </div>
+        </div>
+
+        <div class="info-box">
+            ℹ️ <strong>Keyboard Shortcuts:</strong><br>
+            • Left/Right Arrow: Rotate servo<br>
+            • Up Arrow: Increase speed<br>
+            • Down Arrow: Decrease speed<br>
+            • Space: Stop
+        </div>
     </div>
-  </nav>
 
-  <!-- Contact Section -->
-  <section class="contact">
-    <div class="contact-container">
-      <h2 class="section-title">Get In Touch</h2>
-      <p class="contact-subtitle">I'd love to hear from you. Whether you have a project idea, research opportunity, or just want to say hello, feel free to reach out.</p>
+    <script>
+        // Configuration
+        const POSITION_MIN = 0;
+        const POSITION_MAX = 180;
+        const POSITION_STEP = 5;
+        const SPEED_MIN = 10;
+        const SPEED_MAX = 200;
+        const SPEED_STEP = 5;
 
-      <form class="contact-form" action="https://formspree.io/f/xyzzzzzz" method="POST">
-        <div class="form-group">
-          <label for="name">Name</label>
-          <input 
-            type="text" 
-            id="name" 
-            name="name" 
-            placeholder="Your Name" 
-            required
-          />
-        </div>
+        // State
+        let state = {
+            position: 90,
+            speed: 50,
+            direction: 'stopped' // 'left', 'right', 'stopped'
+        };
 
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input 
-            type="email" 
-            id="email" 
-            name="email" 
-            placeholder="your.email@example.com" 
-            required
-          />
-        </div>
+        // DOM Elements
+        const picoIPInput = document.getElementById('picoIP');
+        const positionDisplay = document.getElementById('positionDisplay');
+        const speedDisplay = document.getElementById('speedDisplay');
+        const directionDisplay = document.getElementById('directionDisplay');
+        const speedSlider = document.getElementById('speedSlider');
+        const speedValue = document.getElementById('speedValue');
+        const statusDot = document.getElementById('statusDot');
+        const connectionStatus = document.getElementById('connectionStatus');
 
-        <div class="form-group">
-          <label for="subject">Subject</label>
-          <input 
-            type="text" 
-            id="subject" 
-            name="subject" 
-            placeholder="What's this about?" 
-            required
-          />
-        </div>
+        // Button elements
+        const leftBtn = document.getElementById('leftBtn');
+        const rightBtn = document.getElementById('rightBtn');
+        const upBtn = document.getElementById('upBtn');
+        const downBtn = document.getElementById('downBtn');
 
-        <div class="form-group">
-          <label for="message">Message</label>
-          <textarea 
-            id="message" 
-            name="message" 
-            placeholder="Tell me more about your inquiry..." 
-            rows="6" 
-            required
-          ></textarea>
-        </div>
+        // Initialize
+        updateDisplay();
 
-        <button type="submit" class="submit-btn">Send Message</button>
-      </form>
+        // Event Listeners - Keyboard
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') {
+                e.preventDefault();
+                rotateLeft();
+            } else if (e.key === 'ArrowRight') {
+                e.preventDefault();
+                rotateRight();
+            } else if (e.key === 'ArrowUp') {
+                e.preventDefault();
+                increaseSpeed();
+            } else if (e.key === 'ArrowDown') {
+                e.preventDefault();
+                decreaseSpeed();
+            } else if (e.key === ' ') {
+                e.preventDefault();
+                stop();
+            }
+        });
 
-      <!-- Alternative Contact Methods -->
-      <div class="contact-methods-divider">
-        <p>Or reach out directly:</p>
-        <div class="contact-links">
-          <a href="https://www.linkedin.com/in/diego-reynoso-ramos-a04876317/" target="_blank" class="contact-link">LinkedIn</a>
-          <a href="https://github.com/SSSCUAT" target="_blank" class="contact-link">GitHub</a>
-        </div>
-      </div>
-    </div>
-  </section>
+        // Event Listeners - Mouse buttons
+        leftBtn.addEventListener('click', rotateLeft);
+        rightBtn.addEventListener('click', rotateRight);
+        upBtn.addEventListener('click', increaseSpeed);
+        downBtn.addEventListener('click', decreaseSpeed);
+        speedSlider.addEventListener('input', handleSpeedChange);
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="footer-content">
-      <p>&copy; 2026 Diego Reynoso. All rights reserved.</p>
-      <p><a href="diego_reynoso_resume.pdf" target="_blank">Download Resume</a></p>
-    </div>
-  </footer>
-
-  <script>
-    // Navbar scroll effect
-    window.addEventListener('scroll', function() {
-      const navbar = document.querySelector('.navbar');
-      if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
-      } else {
-        navbar.classList.remove('scrolled');
-      }
-    });
-
-    // Smooth scroll for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          target.scrollIntoView({ behavior: 'smooth' });
+        // Control Functions
+        function rotateLeft() {
+            if (state.position > POSITION_MIN) {
+                state.position = Math.max(POSITION_MIN, state.position - POSITION_STEP);
+                state.direction = 'left';
+                sendCommand();
+            }
         }
-      });
-    });
-  </script>
 
+        function rotateRight() {
+            if (state.position < POSITION_MAX) {
+                state.position = Math.min(POSITION_MAX, state.position + POSITION_STEP);
+                state.direction = 'right';
+                sendCommand();
+            }
+        }
+
+        function increaseSpeed() {
+            state.speed = Math.max(SPEED_MIN, state.speed - SPEED_STEP);
+            speedSlider.value = state.speed;
+            updateDisplay();
+        }
+
+        function decreaseSpeed() {
+            state.speed = Math.min(SPEED_MAX, state.speed + SPEED_STEP);
+            speedSlider.value = state.speed;
+            updateDisplay();
+        }
+
+        function handleSpeedChange(e) {
+            state.speed = parseInt(e.target.value);
+            updateDisplay();
+        }
+
+        function stop() {
+            state.direction = 'stopped';
+            updateDisplay();
+        }
+
+        function sendCommand() {
+            const picoIP = picoIPInput.value.trim();
+            if (!picoIP) {
+                alert('Please enter Pico W IP address');
+                return;
+            }
+
+            const command = {
+                position: state.position,
+                speed: state.speed,
+                direction: state.direction
+            };
+
+            const url = `http://${picoIP}/servo?pos=${state.position}&speed=${state.speed}`;
+
+            fetch(url, { method: 'GET' })
+                .then(response => {
+                    if (response.ok) {
+                        setConnected(true);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log('Response:', data);
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    setConnected(false);
+                });
+
+            updateDisplay();
+        }
+
+        function setConnected(connected) {
+            if (connected) {
+                statusDot.classList.add('connected');
+                connectionStatus.textContent = 'Connected';
+            } else {
+                statusDot.classList.remove('connected');
+                connectionStatus.textContent = 'Disconnected';
+            }
+        }
+
+        function updateDisplay() {
+            positionDisplay.textContent = `${state.position}°`;
+            speedDisplay.textContent = `${state.speed} ms`;
+            
+            const dirText = state.direction === 'stopped' ? 'Stopped' : 
+                           state.direction === 'left' ? '↻ Counter-Clockwise' : 
+                           '↺ Clockwise';
+            directionDisplay.textContent = dirText;
+            
+            speedValue.textContent = state.speed;
+        }
+
+        // Visual feedback for button presses
+        [leftBtn, rightBtn, upBtn, downBtn].forEach(btn => {
+            btn.addEventListener('mousedown', () => btn.style.transform = 'scale(0.95)');
+            btn.addEventListener('mouseup', () => btn.style.transform = 'scale(1)');
+            btn.addEventListener('mouseleave', () => btn.style.transform = 'scale(1)');
+        });
+    </script>
 </body>
 </html>
