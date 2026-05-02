@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Servo Motor Control</title>
+    <title>Servo Control - Simple</title>
     <style>
         * {
             margin: 0;
@@ -12,7 +12,7 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: Arial, sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
             display: flex;
@@ -26,569 +26,241 @@
             border-radius: 20px;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
             padding: 40px;
-            max-width: 500px;
+            max-width: 400px;
             width: 100%;
-            animation: slideUp 0.6s ease-out;
-        }
-
-        @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            text-align: center;
         }
 
         h1 {
-            font-size: 28px;
             color: #333;
             margin-bottom: 10px;
-            text-align: center;
+            font-size: 24px;
         }
 
         .subtitle {
-            text-align: center;
             color: #999;
             margin-bottom: 30px;
             font-size: 14px;
         }
 
-        .status-box {
+        .ip-section {
             background: #f5f5f5;
-            border-left: 4px solid #667eea;
             padding: 15px;
             border-radius: 8px;
             margin-bottom: 30px;
-            min-height: 80px;
-        }
-
-        .status-item {
-            display: flex;
-            justify-content: space-between;
-            margin: 8px 0;
-            font-size: 14px;
-        }
-
-        .status-label {
-            color: #666;
-            font-weight: 500;
-        }
-
-        .status-value {
-            color: #667eea;
-            font-weight: 700;
-            font-family: 'Courier New', monospace;
-        }
-
-        .control-section {
-            margin-bottom: 30px;
-        }
-
-        .control-label {
-            font-size: 13px;
-            color: #999;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 15px;
-            font-weight: 600;
-        }
-
-        .arrow-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-
-        .arrow-btn {
-            aspect-ratio: 1;
-            border: none;
-            border-radius: 12px;
-            font-size: 24px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            background: #f0f0f0;
-            color: #333;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            grid-column: auto;
-        }
-
-        .arrow-btn:hover {
-            background: #e0e0e0;
-            transform: scale(1.05);
-        }
-
-        .arrow-btn:active {
-            transform: scale(0.95);
-            background: #d0d0d0;
-        }
-
-        .arrow-btn.up {
-            grid-column: 2;
-        }
-
-        .arrow-btn.down {
-            grid-column: 2;
-        }
-
-        .arrow-btn.left {
-            grid-column: 1;
-        }
-
-        .arrow-btn.right {
-            grid-column: 3;
-        }
-
-        .direction-buttons {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-        }
-
-        .dir-btn {
-            padding: 15px;
-            border: 2px solid #667eea;
-            border-radius: 12px;
-            background: white;
-            color: #667eea;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 14px;
-        }
-
-        .dir-btn:hover {
-            background: #f0f0ff;
-            transform: translateY(-2px);
-        }
-
-        .dir-btn.active {
-            background: #667eea;
-            color: white;
-        }
-
-        .connection-indicator {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            padding: 10px;
-            background: #f0f0f0;
-            border-radius: 8px;
-            font-size: 13px;
-            color: #666;
-            margin-bottom: 20px;
-        }
-
-        .status-dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: #ddd;
-            animation: pulse 2s infinite;
-        }
-
-        .status-dot.connected {
-            background: #4CAF50;
-            animation: none;
-        }
-
-        @keyframes pulse {
-            0%, 100% {
-                opacity: 1;
-            }
-            50% {
-                opacity: 0.5;
-            }
-        }
-
-        .speed-slider {
-            width: 100%;
-            height: 6px;
-            border-radius: 3px;
-            background: #e0e0e0;
-            outline: none;
-            -webkit-appearance: none;
-            appearance: none;
-            margin: 15px 0;
-        }
-
-        .speed-slider::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            appearance: none;
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            background: #667eea;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-
-        .speed-slider::-webkit-slider-thumb:hover {
-            transform: scale(1.2);
-            box-shadow: 0 0 10px rgba(102, 126, 234, 0.5);
-        }
-
-        .speed-slider::-moz-range-thumb {
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            background: #667eea;
-            cursor: pointer;
-            border: none;
-            transition: all 0.2s ease;
-        }
-
-        .speed-slider::-moz-range-thumb:hover {
-            transform: scale(1.2);
-            box-shadow: 0 0 10px rgba(102, 126, 234, 0.5);
-        }
-
-        .speed-container {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .speed-display {
-            text-align: center;
-            flex: 1;
-        }
-
-        .speed-number {
-            font-size: 20px;
-            font-weight: 700;
-            color: #667eea;
-            font-family: 'Courier New', monospace;
         }
 
         .ip-input {
             width: 100%;
-            padding: 12px;
-            border: 2px solid #e0e0e0;
-            border-radius: 8px;
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 6px;
             font-size: 14px;
+            font-family: monospace;
             margin-bottom: 10px;
-            font-family: 'Courier New', monospace;
-            transition: border-color 0.3s ease;
         }
 
-        .ip-input:focus {
-            outline: none;
-            border-color: #667eea;
+        .connect-btn {
+            width: 100%;
+            padding: 10px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s;
         }
 
-        .info-box {
-            background: #fff3cd;
-            border-left: 4px solid #ffc107;
-            padding: 12px;
-            border-radius: 8px;
-            font-size: 12px;
-            color: #856404;
-            margin-top: 20px;
-            line-height: 1.6;
+        .connect-btn:hover {
+            background: #5568d3;
         }
 
-        .help-text {
+        .status {
             font-size: 12px;
             color: #999;
             margin-top: 8px;
-            text-align: center;
+        }
+
+        .status.connected {
+            color: #4CAF50;
+            font-weight: bold;
+        }
+
+        .control-section {
+            margin-top: 30px;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .control-btn {
+            padding: 20px 30px;
+            font-size: 20px;
+            font-weight: bold;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.2s;
+            flex: 1;
+            max-width: 150px;
+        }
+
+        .left-btn {
+            background: #FF6B6B;
+            color: white;
+        }
+
+        .left-btn:hover {
+            background: #FF5252;
+            transform: scale(1.05);
+        }
+
+        .left-btn:active {
+            transform: scale(0.95);
+        }
+
+        .right-btn {
+            background: #4CAF50;
+            color: white;
+        }
+
+        .right-btn:hover {
+            background: #45a049;
+            transform: scale(1.05);
+        }
+
+        .right-btn:active {
+            transform: scale(0.95);
+        }
+
+        .position-display {
+            margin-top: 30px;
+            font-size: 16px;
+            color: #333;
+        }
+
+        .angle {
+            font-size: 32px;
+            font-weight: bold;
+            color: #667eea;
+            font-family: monospace;
+        }
+
+        .help {
+            margin-top: 20px;
+            padding: 15px;
+            background: #fff3cd;
+            border-radius: 8px;
+            font-size: 12px;
+            color: #856404;
+            line-height: 1.6;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>🎮 Servo Control</h1>
-        <p class="subtitle">Control your servo with arrow keys</p>
+        <p class="subtitle">MG90S Micro Servo</p>
 
-        <div class="connection-indicator">
-            <div class="status-dot" id="statusDot"></div>
-            <span id="connectionStatus">Disconnected</span>
+        <div class="ip-section">
+            <input 
+                type="text" 
+                class="ip-input" 
+                id="picoIP" 
+                placeholder="192.168.1.100"
+                value="172.20.10.4"
+            >
+            <button class="connect-btn" onclick="connect()">Connect</button>
+            <div class="status" id="status">Not connected</div>
         </div>
 
         <div class="control-section">
-            <label class="control-label">Pico W IP Address</label>
-            <div style="display: flex; gap: 10px; margin-bottom: 10px;">
-                <input 
-                    type="text" 
-                    class="ip-input" 
-                    id="picoIP" 
-                    placeholder="192.168.1.100" 
-                    value="172.20.10.4"
-                    style="flex: 1;"
-                >
-                <button id="connectBtn" style="padding: 12px 24px; background: #667eea; color: white; border: none; border-radius: 8px; font-weight: 600; cursor: pointer; white-space: nowrap; transition: all 0.3s ease;">
-                    Connect
-                </button>
-            </div>
-            <p class="help-text">Enter IP and click Connect (or press Enter)</p>
-        </div>
-
-        <div class="status-box">
-            <div class="status-item">
-                <span class="status-label">Position:</span>
-                <span class="status-value" id="positionDisplay">90°</span>
-            </div>
-            <div class="status-item">
-                <span class="status-label">Speed:</span>
-                <span class="status-value" id="speedDisplay">50 ms</span>
-            </div>
-            <div class="status-item">
-                <span class="status-label">Direction:</span>
-                <span class="status-value" id="directionDisplay">Stopped</span>
+            <div class="button-group">
+                <button class="control-btn left-btn" onclick="rotateLeft()">← LEFT</button>
+                <button class="control-btn right-btn" onclick="rotateRight()">RIGHT →</button>
             </div>
         </div>
 
-        <div class="control-section">
-            <label class="control-label">← → Rotate</label>
-            <div class="arrow-grid">
-                <button class="arrow-btn left" id="leftBtn">◀</button>
-                <button class="arrow-btn up" id="upBtn">⬆</button>
-                <button class="arrow-btn right" id="rightBtn">▶</button>
-                <button class="arrow-btn down" id="downBtn">⬇</button>
-            </div>
-            <p class="help-text">← → Arrow keys to rotate • ↑ ↓ to adjust speed</p>
+        <div class="position-display">
+            Position: <span class="angle" id="angle">90°</span>
         </div>
 
-        <div class="control-section">
-            <label class="control-label">⏱ Speed Control (ms between steps)</label>
-            <div class="speed-container">
-                <span style="color: #999; font-size: 12px;">Fast</span>
-                <input 
-                    type="range" 
-                    class="speed-slider" 
-                    id="speedSlider" 
-                    min="10" 
-                    max="200" 
-                    value="50"
-                >
-                <span style="color: #999; font-size: 12px;">Slow</span>
-            </div>
-            <div class="speed-display">
-                <span class="speed-number" id="speedValue">50</span> ms
-            </div>
-        </div>
-
-        <div class="info-box">
-            ℹ️ <strong>Keyboard Shortcuts:</strong><br>
-            • Left/Right Arrow: Rotate servo<br>
-            • Up Arrow: Increase speed<br>
-            • Down Arrow: Decrease speed<br>
-            • Space: Stop
+        <div class="help">
+            <strong>How to use:</strong><br>
+            1. Enter Pico IP and click Connect<br>
+            2. Click LEFT or RIGHT to rotate servo<br>
+            3. Each click = 45° movement
         </div>
     </div>
 
     <script>
-        // Configuration
-        const POSITION_MIN = 0;
-        const POSITION_MAX = 180;
-        const POSITION_STEP = 5;
-        const SPEED_MIN = 10;
-        const SPEED_MAX = 200;
-        const SPEED_STEP = 5;
+        let currentAngle = 90;
+        let picoIP = "172.20.10.4";
+        let isConnected = false;
 
-        // State
-        let state = {
-            position: 90,
-            speed: 50,
-            direction: 'stopped' // 'left', 'right', 'stopped'
-        };
-
-        // DOM Elements
-        const picoIPInput = document.getElementById('picoIP');
-        const connectBtn = document.getElementById('connectBtn');
-        const positionDisplay = document.getElementById('positionDisplay');
-        const speedDisplay = document.getElementById('speedDisplay');
-        const directionDisplay = document.getElementById('directionDisplay');
-        const speedSlider = document.getElementById('speedSlider');
-        const speedValue = document.getElementById('speedValue');
-        const statusDot = document.getElementById('statusDot');
-        const connectionStatus = document.getElementById('connectionStatus');
-
-        // Button elements
-        const leftBtn = document.getElementById('leftBtn');
-        const rightBtn = document.getElementById('rightBtn');
-        const upBtn = document.getElementById('upBtn');
-        const downBtn = document.getElementById('downBtn');
-
-        // Initialize
-        updateDisplay();
-
-        // Event Listeners - Connect button and Enter key
-        connectBtn.addEventListener('click', testConnection);
-        picoIPInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') {
-                e.preventDefault();
-                testConnection();
-            }
-        });
-
-        // Event Listeners - Keyboard
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowLeft') {
-                e.preventDefault();
-                rotateLeft();
-            } else if (e.key === 'ArrowRight') {
-                e.preventDefault();
-                rotateRight();
-            } else if (e.key === 'ArrowUp') {
-                e.preventDefault();
-                increaseSpeed();
-            } else if (e.key === 'ArrowDown') {
-                e.preventDefault();
-                decreaseSpeed();
-            } else if (e.key === ' ') {
-                e.preventDefault();
-                stop();
-            }
-        });
-
-        // Event Listeners - Mouse buttons
-        leftBtn.addEventListener('click', rotateLeft);
-        rightBtn.addEventListener('click', rotateRight);
-        upBtn.addEventListener('click', increaseSpeed);
-        downBtn.addEventListener('click', decreaseSpeed);
-        speedSlider.addEventListener('input', handleSpeedChange);
-
-        // Control Functions
-        function testConnection() {
-            const picoIP = picoIPInput.value.trim();
+        function connect() {
+            picoIP = document.getElementById("picoIP").value.trim();
             if (!picoIP) {
-                alert('Please enter Pico W IP address');
+                alert("Enter IP address");
                 return;
             }
 
-            connectBtn.disabled = true;
-            connectBtn.textContent = 'Testing...';
-            connectBtn.style.opacity = '0.6';
-
-            const url = `http://${picoIP}/status`;
-
-            fetch(url, { method: 'GET' })
-                .then(response => response.json())
-                .then(data => {
-                    setConnected(true);
-                    alert(`✓ Connected! Servo at ${data.position}°`);
-                    connectBtn.textContent = 'Connected ✓';
-                    connectBtn.style.background = '#4CAF50';
+            const url = `http://${picoIP}/`;
+            fetch(url)
+                .then(r => r.json())
+                .then(d => {
+                    isConnected = true;
+                    document.getElementById("status").classList.add("connected");
+                    document.getElementById("status").textContent = "✓ Connected";
+                    alert("Connected!");
                 })
-                .catch(error => {
-                    setConnected(false);
-                    alert(`✗ Cannot connect to ${picoIP}\n\nMake sure:\n• Pico W is powered on\n• IP address is correct\n• Both are on same network`);
-                    connectBtn.textContent = 'Connect';
-                    connectBtn.style.background = '#667eea';
-                })
-                .finally(() => {
-                    connectBtn.disabled = false;
-                    connectBtn.style.opacity = '1';
+                .catch(e => {
+                    isConnected = false;
+                    document.getElementById("status").classList.remove("connected");
+                    document.getElementById("status").textContent = "✗ Not connected";
+                    alert("Cannot connect to " + picoIP);
                 });
         }
 
         function rotateLeft() {
-            if (state.position > POSITION_MIN) {
-                state.position = Math.max(POSITION_MIN, state.position - POSITION_STEP);
-                state.direction = 'left';
-                sendCommand();
+            if (!isConnected) {
+                alert("Connect first!");
+                return;
             }
+            
+            currentAngle = Math.max(0, currentAngle - 45);
+            moveServo(currentAngle);
         }
 
         function rotateRight() {
-            if (state.position < POSITION_MAX) {
-                state.position = Math.min(POSITION_MAX, state.position + POSITION_STEP);
-                state.direction = 'right';
-                sendCommand();
-            }
-        }
-
-        function increaseSpeed() {
-            state.speed = Math.max(SPEED_MIN, state.speed - SPEED_STEP);
-            speedSlider.value = state.speed;
-            updateDisplay();
-        }
-
-        function decreaseSpeed() {
-            state.speed = Math.min(SPEED_MAX, state.speed + SPEED_STEP);
-            speedSlider.value = state.speed;
-            updateDisplay();
-        }
-
-        function handleSpeedChange(e) {
-            state.speed = parseInt(e.target.value);
-            updateDisplay();
-        }
-
-        function stop() {
-            state.direction = 'stopped';
-            updateDisplay();
-        }
-
-        function sendCommand() {
-            const picoIP = picoIPInput.value.trim();
-            if (!picoIP) {
-                alert('Please enter Pico W IP address and click Connect first');
+            if (!isConnected) {
+                alert("Connect first!");
                 return;
             }
+            
+            currentAngle = Math.min(180, currentAngle + 45);
+            moveServo(currentAngle);
+        }
 
-            const command = {
-                position: state.position,
-                speed: state.speed,
-                direction: state.direction
-            };
-
-            const url = `http://${picoIP}/servo?pos=${state.position}&speed=${state.speed}`;
-
-            fetch(url, { method: 'GET' })
-                .then(response => {
-                    if (response.ok) {
-                        setConnected(true);
-                    }
-                    return response.json();
+        function moveServo(angle) {
+            const url = `http://${picoIP}/move?angle=${angle}`;
+            
+            fetch(url)
+                .then(r => r.json())
+                .then(d => {
+                    document.getElementById("angle").textContent = angle + "°";
+                    console.log("Moved to " + angle + "°");
                 })
-                .then(data => {
-                    console.log('Response:', data);
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                    setConnected(false);
+                .catch(e => {
+                    console.error("Error:", e);
+                    isConnected = false;
+                    document.getElementById("status").textContent = "✗ Disconnected";
                 });
-
-            updateDisplay();
         }
-
-        function setConnected(connected) {
-            if (connected) {
-                statusDot.classList.add('connected');
-                connectionStatus.textContent = 'Connected';
-            } else {
-                statusDot.classList.remove('connected');
-                connectionStatus.textContent = 'Disconnected';
-            }
-        }
-
-        function updateDisplay() {
-            positionDisplay.textContent = `${state.position}°`;
-            speedDisplay.textContent = `${state.speed} ms`;
-            
-            const dirText = state.direction === 'stopped' ? 'Stopped' : 
-                           state.direction === 'left' ? '↻ Counter-Clockwise' : 
-                           '↺ Clockwise';
-            directionDisplay.textContent = dirText;
-            
-            speedValue.textContent = state.speed;
-        }
-
-        // Visual feedback for button presses
-        [leftBtn, rightBtn, upBtn, downBtn].forEach(btn => {
-            btn.addEventListener('mousedown', () => btn.style.transform = 'scale(0.95)');
-            btn.addEventListener('mouseup', () => btn.style.transform = 'scale(1)');
-            btn.addEventListener('mouseleave', () => btn.style.transform = 'scale(1)');
-        });
     </script>
 </body>
 </html>
